@@ -52,7 +52,7 @@ public:
     LoginScreen(EmployeeManager& manager) : EmployeeScreenBase(manager){} // , _clientManager(clientManager), _empManager(manager){}
 
     LoginStatus login(CurrentUser& user){
-        showGlobalScreen("Login Screen \t\t\t(exit = 0)");
+        showGlobalScreen("Login Screen", "(exit = 0)");
         
         string userName = _InputUserName();
 

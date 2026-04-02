@@ -26,6 +26,7 @@ class ClientMainScreen : protected Screen {
 		cout << setw(30) << ' ' << '[' << Find << ']' << ". Find" << endl;
 		cout << setw(30) << ' ' << '[' << ShowList << ']' << ". Show List" << endl;
 		cout << setw(30) << ' ' << '[' << Trans << ']' << ". Transiction" << endl;
+		cout << setw(30) << ' ' << "[7]. Login Screen" << endl;
 		cout << setw(30) << ' ' << "------------" << '\n';
 	}
 	void _PrintMainScreen(const std::string& userName) {
@@ -89,8 +90,9 @@ public:
 			system("cls");
 			_DirectToScreen(_choise, user);
 
-			if (_choise != Trans)
-				system("pause");
+			if (_choise > Trans)
+				break;
+			system("pause");
 
 		} while (true);
 	}

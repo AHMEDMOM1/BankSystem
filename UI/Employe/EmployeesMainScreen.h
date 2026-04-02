@@ -20,7 +20,7 @@ class EmployeesMainScreen : protected Screen {
         cout << setw(30) << ' ' << '[' << Update << ']' << ". Update Employee" << endl;
         cout << setw(30) << ' ' << '[' << Find << ']' << ". Find Employee" << endl;
         cout << setw(30) << ' ' << '[' << ShowList << ']' << ". Show List Employees" << endl;
-		cout << setw(30) << ' ' << "[6]. Main Screen" << endl;
+		cout << setw(30) << ' ' << "[6]. Login Screen" << endl;
         cout << setw(30) << ' ' << "------------" << '\n';
     }
 	void _PrintEmployeeMainScreen(const std::string& userName) {
@@ -85,6 +85,9 @@ public:
 			system("cls");
 
 			_DirectToScreen(_choise, user);
+
+			if (_choise > ShowList)
+				break;
 
 			system("pause");
 
