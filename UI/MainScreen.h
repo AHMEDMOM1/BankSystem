@@ -1,0 +1,70 @@
+#pragma once
+
+#include <iostream>
+
+#include "Screen.h"
+#include "ClientMainScreen.h"
+#include "EmployeesMainScreen.h"
+
+
+// 1. print main screen
+// 2. create logic screen
+
+using namespace std;
+class MainScreen : protected Screen {
+  ClientManager& _clntManager;
+  EmployeeManager& _empManager;
+  enum enChoise { Employee = 1, Client } _choise{};
+  void _PrintBody() {
+    cout << setw(30) << ' ' << '[' << Employee << ']' << ". Employee Manage" << endl;
+    cout << setw(30) << ' ' << '[' << Client << ']' << ". Client Manage" << endl;
+    cout << setw(30) << ' ' << "[3]" << ". Logout" << endl;
+	cout << setw(30) << ' ' << "------------" << '\n';
+  }
+  void _PrintMainScreen(const std::string& userName) { 
+	showGlobalScreen("Main Screen (" + userName + ')');
+	_PrintBody();
+  }
+
+  enChoise getChoise(){
+	short choise{};
+	cout << setw(30) << ' ' << "Enter Choise: ";
+	cin >> choise;
+	return static_cast<enChoise>(choise);
+  }
+
+  void _DirectToScreen(const enChoise& choise, CurrentUser& user){
+	switch (choise) {
+		case Employee: {
+			EmployeesMainScreen empMainScreen(_empManager);
+			empMainScreen.show(user);
+			break;
+		}
+		case Client: {
+			ClientMainScreen clntMainScreen(_clntManager);
+			clntMainScreen.show(user);
+			break;
+		}
+		default:
+			user.logout();
+			return;
+	}
+  }
+
+public:
+  MainScreen(ClientManager &clntManager, EmployeeManager& empManager) : _clntManager(clntManager), _empManager(empManager) {};
+
+  void show(CurrentUser& user) {
+	do{
+		
+		system("cls");
+		_PrintMainScreen(user.getEmployee().getUserName());
+		_choise = getChoise();
+
+		system("cls");
+		_DirectToScreen(_choise, user);
+
+
+	}while(_choise < 2);
+  }
+};

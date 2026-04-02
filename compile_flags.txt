@@ -1,0 +1,11 @@
+-xc++
+-std=c++17
+-IModels
+-IInterface
+-IRepository
+-IServices
+-IUtility
+-IUI
+-IUI/Client
+-IUI/Employe
+

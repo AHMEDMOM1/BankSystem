@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "name": "windows-gcc-x86",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/Models",
+        "${workspaceFolder}/Interface",
+        "${workspaceFolder}/Repository",
+        "${workspaceFolder}/Services",
+        "${workspaceFolder}/Utility",
+        "${workspaceFolder}/UI",
+        "${workspaceFolder}/UI/Client",
+        "${workspaceFolder}/UI/Employe"
+      ],
+      "compilerPath": "C:/MinGW/bin/g++.exe",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "windows-gcc-x86",
+      "compilerArgs": [
+        "-I${workspaceFolder}/Models",
+        "-I${workspaceFolder}/Interface",
+        "-I${workspaceFolder}/Repository",
+        "-I${workspaceFolder}/Services",
+        "-I${workspaceFolder}/Utility",
+        "-I${workspaceFolder}/UI",
+        "-I${workspaceFolder}/UI/Client",
+        "-I${workspaceFolder}/UI/Employe"
+      ]
+    }
+  ],
+  "version": 4
+}

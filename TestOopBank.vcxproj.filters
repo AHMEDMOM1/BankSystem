@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{eb21177f-d9db-47aa-8320-37c224f5d058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\Client">
+      <UniqueIdentifier>{9641b944-953f-4474-b33a-51f933911dde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI\Employ">
+      <UniqueIdentifier>{afb1a54f-003b-4ec9-9171-ed80e62a3f62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Services">
+      <UniqueIdentifier>{5fefac20-a9c5-4ac0-9715-972580fa8e1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Repository">
+      <UniqueIdentifier>{3bba83e2-eca9-4b3d-b652-d990a5c06ca1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interface">
+      <UniqueIdentifier>{d8a999e1-5610-49a1-a5a5-240f22c4e3e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{84391446-13b6-4cfc-9950-a90ccd730f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{38ae3668-829f-4e56-9dac-98f881ec3770}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TestOopBank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UI\MainScreen.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\AddClientScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\DeleteClientScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\FindClientScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\UpdateClientScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\ClientManager.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\EmployeeManager.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository\FileClientRepo.h">
+      <Filter>Header Files\Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository\FileEmployeeRepo.h">
+      <Filter>Header Files\Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\IClientRepo.h">
+      <Filter>Header Files\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\IEmployeeRepo.h">
+      <Filter>Header Files\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Client.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Person.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Employee.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Screen.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oopBankProject\UserfullLb\clsString.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oopBankProject\UserfullLb\clsUtil.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oopBankProject\UserfullLb\clsDate.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oopBankProject\UserfullLb\clsInputValidate.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\ClientsList.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\ClientScreenBase.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\DepoScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\TransictionScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\WithdScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\TotalBalanceScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\ManageEmployeesScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Employe\EmployeeScreenBase.h">
+      <Filter>Header Files\UI\Employ</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Employe\EmployeesMainScreen.h">
+      <Filter>Header Files\UI\Employ</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\ClientMainScreen.h">
+      <Filter>Header Files\UI\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Employe\AddEmployeeScreen.h">
+      <Filter>Header Files\UI\Employ</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Employe\DeleteEmployeeScreen.h">
+      <Filter>Header Files\UI\Employ</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Employe\FindEmployeeScreen.h">
+      <Filter>Header Files\UI\Employ</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Employe\ShowEmployeeListScreen.h">
+      <Filter>Header Files\UI\Employ</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Employe\UpdateEmployeeScreen.h">
+      <Filter>Header Files\UI\Employ</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentUser.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\LoginScreen.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
