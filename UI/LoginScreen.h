@@ -1,11 +1,11 @@
 #pragma once
 
-#include "ClientMainScreen.h"
 #include "Employee.h"
 #include "MainScreen.h"
-#include "../CurrentUser.h"
 #include "ClientManager.h"
+#include "../CurrentUser.h"
 #include "EmployeeManager.h"
+#include "ClientMainScreen.h"
 #include "clsInputValidate.h"
 #include "EmployeeScreenBase.h"
 

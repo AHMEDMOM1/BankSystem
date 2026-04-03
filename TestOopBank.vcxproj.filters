@@ -152,5 +152,8 @@
     <ClInclude Include="UI\LoginScreen.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Repository\UserLoginFile.h">
+      <Filter>Header Files\Repository</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

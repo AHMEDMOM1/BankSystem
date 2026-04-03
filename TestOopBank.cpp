@@ -2,8 +2,9 @@
 #include "EmployeeManager.h"
 #include "FileEmployeeRepo.h"
 
-#include "ClientManager.h"
+#include "UserLoginFile.h"
 #include "FileClientRepo.h"
+#include "ClientManager.h"
 #include "LoginScreen.h"
 #include "MainScreen.h"
 
@@ -17,9 +18,8 @@ int main() {
 	
 	FileClientRepo clntRepo{ "Client.txt" };
 	ClientManager clntManager{ clntRepo };
-
     
-    int i{ 3 };
+   int i{ 3 };
     CurrentUser sessionUser;
     
     do {
@@ -27,15 +27,20 @@ int main() {
         LoginScreen::LoginStatus result = loginScreen.login(sessionUser);
         if (result == LoginScreen::LoginStatus::Failed) {
             i--;
+
             cout << setw(30) << ' ' << "You Have " << i << " Trying!!" << endl;
         }
         else if (result == LoginScreen::LoginStatus::Canceled) return 0;
         else {
+            UserLoginFile userLog{ "UserLog.txt" };
+            userLog.add(sessionUser);
+
             MainScreen mainScreen(clntManager, empManager);
             mainScreen.show(sessionUser);
         }
 
     } while (i > 0);
+
 
 
 

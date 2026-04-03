@@ -139,6 +139,7 @@
     <ClInclude Include="Models\Employee.h" />
     <ClInclude Include="Repository\FileClientRepo.h" />
     <ClInclude Include="Repository\FileEmployeeRepo.h" />
+    <ClInclude Include="Repository\UserLoginFile.h" />
     <ClInclude Include="Services\ClientManager.h" />
     <ClInclude Include="Services\EmployeeManager.h" />
     <ClInclude Include="UI\Client\AddClientScreen.h" />

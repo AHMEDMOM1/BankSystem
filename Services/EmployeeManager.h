@@ -2,13 +2,17 @@
 #include <iostream>
 #include <vector>
 
+#include "UserLoginFile.h"
 #include "IEmployeeRepo.h"
 #include "Employee.h"
 
 class EmployeeManager {
     IEmployeeRepo& _repo;
+    // UserLoginFile& _userLog;
+
 public:
     EmployeeManager(IEmployeeRepo& repo) : _repo(repo) {}
+    // EmployeeManager(UserLoginFile& log) : _userLog(log) {}
     bool addNew(const Employee& employee) {
         if (!_repo.isExistAccount(employee.getUserName()))
             return _repo.add(employee);
@@ -32,6 +36,10 @@ public:
     }
     std::vector<Employee> loadAll() {
         return _repo.getAll();
+    }
+
+    bool UserLog() {
+
     }
 
 };
