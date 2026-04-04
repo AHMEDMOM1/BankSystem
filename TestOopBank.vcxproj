@@ -135,6 +135,7 @@
     <ClInclude Include="Interface\IClientRepo.h" />
     <ClInclude Include="Interface\IEmployeeRepo.h" />
     <ClInclude Include="Models\Client.h" />
+    <ClInclude Include="Models\LoginRecord.h" />
     <ClInclude Include="Models\Person.h" />
     <ClInclude Include="Models\Employee.h" />
     <ClInclude Include="Repository\FileClientRepo.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="UI\Employe\EmployeesMainScreen.h" />
     <ClInclude Include="UI\Employe\FindEmployeeScreen.h" />
     <ClInclude Include="UI\Employe\ShowEmployeeListScreen.h" />
+    <ClInclude Include="UI\Employe\ShowLoginRegisterScreen.h" />
     <ClInclude Include="UI\Employe\UpdateEmployeeScreen.h" />
     <ClInclude Include="UI\LoginScreen.h" />
     <ClInclude Include="UI\MainScreen.h" />

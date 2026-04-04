@@ -14,11 +14,11 @@ using namespace std;
 class MainScreen : protected Screen {
   ClientManager& _clntManager;
   EmployeeManager& _empManager;
-  enum enChoise { Employee = 1, Client } _choise{};
+  enum enChoise { Employee = 1, Client, Logout } _choise{};
   void _PrintBody() {
     cout << setw(30) << ' ' << '[' << Employee << ']' << ". Employee Manage" << endl;
     cout << setw(30) << ' ' << '[' << Client << ']' << ". Client Manage" << endl;
-    cout << setw(30) << ' ' << "[3]" << ". Logout" << endl;
+    cout << setw(30) << ' ' << '[' << Logout << ']' << ". Logout" << endl;
 	cout << setw(30) << ' ' << "------------" << '\n';
   }
   void _PrintMainScreen(const std::string& userName) { 
@@ -45,9 +45,11 @@ class MainScreen : protected Screen {
 			clntMainScreen.show(user);
 			break;
 		}
-		default:
+		case Logout:
 			user.logout();
 			return;
+		default:
+			break;
 	}
   }
 
@@ -65,6 +67,7 @@ public:
 		_DirectToScreen(_choise, user);
 
 
-	}while(_choise < 2);
+	}while(_choise != Logout);
   }
 };
+

@@ -27,7 +27,6 @@ int main() {
         LoginScreen::LoginStatus result = loginScreen.login(sessionUser);
         if (result == LoginScreen::LoginStatus::Failed) {
             i--;
-
             cout << setw(30) << ' ' << "You Have " << i << " Trying!!" << endl;
         }
         else if (result == LoginScreen::LoginStatus::Canceled) return 0;

@@ -9,18 +9,20 @@
 #include "UpdateEmployeeScreen.h"
 #include "DeleteEmployeeScreen.h"
 #include "ShowEmployeeListScreen.h"
+#include "ShowLoginRegisterScreen.h"
 
 class EmployeesMainScreen : protected Screen {
 	EmployeeManager& _manager;
 
-    enum enChoise { Add = 1, Delete, Update, Find, ShowList } _choise{};
+    enum enChoise { Add = 1, Delete, Update, Find, ShowList, LoginRegister, Back } _choise{};
     void _PrintBody() {
         cout << setw(30) << ' ' << '[' << Add << ']' << ". Add Employee" << endl;
         cout << setw(30) << ' ' << '[' << Delete << ']' << ". Delete Employee" << endl;
         cout << setw(30) << ' ' << '[' << Update << ']' << ". Update Employee" << endl;
         cout << setw(30) << ' ' << '[' << Find << ']' << ". Find Employee" << endl;
         cout << setw(30) << ' ' << '[' << ShowList << ']' << ". Show List Employees" << endl;
-		cout << setw(30) << ' ' << "[6]. Login Screen" << endl;
+        cout << setw(30) << ' ' << '[' << LoginRegister << ']' << ". Login Register" << endl;
+		cout << setw(30) << ' ' << '[' << Back << ']' << ". Main Screen" << endl;
         cout << setw(30) << ' ' << "------------" << '\n';
     }
 	void _PrintEmployeeMainScreen(const std::string& userName) {
@@ -62,6 +64,13 @@ class EmployeesMainScreen : protected Screen {
 			empList.show();
 			break;
 		}
+		case LoginRegister: {
+			ShowLoginRegisterScreen loginRegScreen;
+			loginRegScreen.show();
+			break;
+		}
+		case Back:
+			return;
 		default:
 			return;
 		}
@@ -75,7 +84,6 @@ public:
 			system("pause");
 			return;
 		}
-		_PrintEmployeeMainScreen(user.getEmployee().getUserName());
 
 		do {
 			system("cls");
@@ -86,7 +94,7 @@ public:
 
 			_DirectToScreen(_choise, user);
 
-			if (_choise > ShowList)
+			if (_choise == Back)
 				break;
 
 			system("pause");
