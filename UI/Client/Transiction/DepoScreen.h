@@ -17,7 +17,7 @@ class DepoScreen : protected ClientScreenBase
 	}
 public:
 	DepoScreen(ClientManager& manager) : ClientScreenBase(manager) {}
-	void show(const CurrentUser& user) {
+	void show() {
 		showGlobalScreen("Deposite Screen");
 		
 		do {

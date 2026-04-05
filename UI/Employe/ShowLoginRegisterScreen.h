@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "Employee.h"
 #include "Screen.h"
 #include "UserLoginFile.h"
 
@@ -110,9 +111,19 @@ class ShowLoginRegisterScreen : protected Screen
 		_ResetColor();
 	}
 
+	void _PrintTabel(vector<LoginRecord> vRecords) {
+		_PrintTableHeader();
+
+		for (const LoginRecord& record : vRecords) {
+			_PrintRow(record);
+		}
+
+		_PrintFooter(static_cast<short>(vRecords.size()));
+	}
+
 public:
 
-	void show() {
+	void show(const CurrentUser& user) {
 
 		showGlobalScreen("Login Register");
 
@@ -126,12 +137,7 @@ public:
 			return;
 		}
 
-		_PrintTableHeader();
-
-		for (const LoginRecord& record : vRecords) {
-			_PrintRow(record);
-		}
-
-		_PrintFooter(static_cast<short>(vRecords.size()));
+		_PrintTabel(vRecords);
+		
 	}
 };

@@ -7,6 +7,7 @@
 #include "DepoScreen.h"
 #include "WithdScreen.h"
 #include "ClientManager.h"
+#include "TransferScreen.h"
 #include "clsInputValidate.h"
 #include "TotalBalanceScreen.h"
 
@@ -15,7 +16,7 @@ using namespace std;
 class TransictionScreen : protected Screen
 {
 	ClientManager& _manager;
-	enum _enChoise { Depo = 1, Withd, TotalBalance } _choise{};
+	enum _enChoise { Depo = 1, Withd, TotalBalance, Transfer } _choise{};
 	_enChoise _GetChosie() {
 			cout << setw(30) << ' ';
 		short choise{
@@ -27,17 +28,22 @@ class TransictionScreen : protected Screen
 		switch (choise) {
 		case Depo: {
 			DepoScreen depo(_manager);
-			depo.show(user);
+			depo.show();
 			break;
 		}
 		case Withd: {
 			WithdrawScreen withd(_manager);
-			withd.show(user);
+			withd.show();
 			break;
 		}
 		case TotalBalance: {
 			TotalBalanceScreen total(_manager);
-			total.show(user);
+			total.show();
+			break;
+		}
+		case Transfer: {
+			TransferScreen trans(_manager);
+			trans.show();
 			break;
 		}
 		default:
@@ -49,7 +55,8 @@ class TransictionScreen : protected Screen
 		cout << setw(30) << ' ' << '[' << Depo << ']' << ". Deposite" << endl;
 		cout << setw(30) << ' ' << '[' << Withd << ']' << ". Withdraw" << endl;
 		cout << setw(30) << ' ' << '[' << TotalBalance << ']' << ". Show Total Balance" << endl;
-		cout << setw(30) << ' ' << "[4]. Main Screen" << endl;
+		cout << setw(30) << ' ' << '[' << Transfer << ']' << ". Transform" << endl;
+		cout << setw(30) << ' ' << "[5]. Main Screen" << endl;
 		cout << setw(30) << ' ' << "------------------" << '\n';
 	}
 public:
@@ -65,19 +72,19 @@ public:
 		}
 
 		do {
+
 			system("cls");
+			showGlobalScreen("Transcition Screen");
 
 			_PrintBody();
 			choise = _GetChosie();
 			system("cls");
 
 			_DirectToScreen(choise, user);
-			
-			if (choise <= 3) {
-				system("pause");
-			}
 
-		} while (choise <= 3);
+			system("pause");
+
+		} while (choise <= 4);
 	}
 
 };

@@ -102,7 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)UI;$(ProjectDir)UI/Client;$(ProjectDir)UI/Employe;$(ProjectDir)Repository;$(ProjectDir)Services;$(ProjectDir)Models;$(ProjectDir)Utility;$(ProjectDir)Interface;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)UI;$(ProjectDir)UI/Client;$(ProjectDir)UI/Employe;$(ProjectDir)Repository;$(ProjectDir)Services;$(ProjectDir)Models;$(ProjectDir)Utility;$(ProjectDir)Interface;$(ProjectDir);$(ProjectDir)UI/Client/Transiction</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,13 +148,14 @@
     <ClInclude Include="UI\Client\ClientScreenBase.h" />
     <ClInclude Include="UI\Client\ClientsList.h" />
     <ClInclude Include="UI\Client\DeleteClientScreen.h" />
-    <ClInclude Include="UI\Client\DepoScreen.h" />
     <ClInclude Include="UI\Client\FindClientScreen.h" />
     <ClInclude Include="UI\Client\ManageEmployeesScreen.h" />
-    <ClInclude Include="UI\Client\TotalBalanceScreen.h" />
-    <ClInclude Include="UI\Client\TransictionScreen.h" />
+    <ClInclude Include="UI\Client\Transiction\DepoScreen.h" />
+    <ClInclude Include="UI\Client\Transiction\TotalBalanceScreen.h" />
+    <ClInclude Include="UI\Client\Transiction\TransferScreen.h" />
+    <ClInclude Include="UI\Client\Transiction\TransictionScreen.h" />
+    <ClInclude Include="UI\Client\Transiction\WithdScreen.h" />
     <ClInclude Include="UI\Client\UpdateClientScreen.h" />
-    <ClInclude Include="UI\Client\WithdScreen.h" />
     <ClInclude Include="UI\Employe\AddEmployeeScreen.h" />
     <ClInclude Include="UI\Employe\DeleteEmployeeScreen.h" />
     <ClInclude Include="UI\Employe\EmployeeScreenBase.h" />

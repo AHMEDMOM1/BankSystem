@@ -142,7 +142,7 @@ class TotalBalanceScreen : protected Screen
 public:
 	TotalBalanceScreen(ClientManager& manager) : _manager(manager) {}
 
-	void show(const CurrentUser& user) {
+	void show() {
 		_ShowList();
 	}
 };

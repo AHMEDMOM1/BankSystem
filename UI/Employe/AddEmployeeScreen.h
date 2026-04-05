@@ -38,11 +38,13 @@ class AddEmployeeScreen : protected EmployeeScreenBase {
 		};
 
 		const vector<PermissionItem> permissions {
-			{ "Give Show List? ",  Employee::enPermissions::pListClients   },
-			{ "Give Add? ",        Employee::enPermissions::pAddNewClient  },
-			{ "Give Delete? ",     Employee::enPermissions::pDeleteClient  },
-			{ "Give Update? ",     Employee::enPermissions::pUpdateClients },
-			{ "Give Find? ",       Employee::enPermissions::pFindClient    },
+			{ "Give Show List? ",	  Employee::enPermissions::pListClients   },
+			{ "Give Add? ",			  Employee::enPermissions::pAddNewClient  },
+			{ "Give Delete? ",		  Employee::enPermissions::pDeleteClient  },
+			{ "Give Update? ",		  Employee::enPermissions::pUpdateClients },
+			{ "Give Find? ",		  Employee::enPermissions::pFindClient    },
+			{ "Give Transaction? ",   Employee::enPermissions::pTransactions  },
+			{ "Give Manager User? ",  Employee::enPermissions::pManageUsers	  }
 		};
 
 		int perm{};

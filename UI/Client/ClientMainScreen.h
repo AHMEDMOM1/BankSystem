@@ -90,8 +90,6 @@ public:
 			system("cls");
 			_DirectToScreen(_choise, user);
 
-			if (_choise > Trans)
-				break;
 			system("pause");
 
 		} while (true);

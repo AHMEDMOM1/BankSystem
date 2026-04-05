@@ -27,7 +27,7 @@ class UserLoginFile
         std::vector<std::string> fields = clsString::Split(line, _delim);
         LoginRecord record;
 
-        if (fields.size() >= 1) record.dateTime    = fields[0];
+        if (fields.size() >= 1) record.dateTime     = fields[0];
         if (fields.size() >= 2) record.userName     = fields[1];
         if (fields.size() >= 3) record.password     = fields[2];
         if (fields.size() >= 4) record.permissions  = std::stoi(fields[3]);
@@ -49,8 +49,8 @@ public:
     }
 
     std::vector<LoginRecord> getAll() {
-        std::vector<LoginRecord> vRecords;
-        std::fstream myFile;
+        std::vector<LoginRecord> vRecords{};
+        std::fstream myFile{};
         myFile.open(_fileName, std::ios::in);
         if (myFile.is_open()) {
             std::string line;

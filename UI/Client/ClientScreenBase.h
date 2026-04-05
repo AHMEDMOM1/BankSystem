@@ -51,10 +51,10 @@ class ClientScreenBase : protected Screen {
     }
 
     // ─── Shared: Try Find Existing Account ───────────
-    bool _TryExistAccount(string& account) {
+    bool _TryExistAccount(string& account, const string& massage) {
         do {
             cout << setw(30) << ' ';
-            account = clsInputValidate::ReadString("Enter Existing Account: ");
+            account = clsInputValidate::ReadString(massage);
             if (_manager.existAccount(account))
                 return true;
             cout << setw(30) << ' ' << "--> Error: Account Not Found!\n";
@@ -63,9 +63,9 @@ class ClientScreenBase : protected Screen {
     }
 
     // ─── Shared: Get Existing Client ─────────────────
-    Client _GetClient() {
+    Client _GetClient(const string& massage = "Enter Existing Account: ") {
         string account{};
-        if (_TryExistAccount(account))
+        if (_TryExistAccount(account, massage))
             return _manager.find(account);
         return Client();
     }
@@ -74,7 +74,7 @@ class ClientScreenBase : protected Screen {
         cout << setw(30) << ' ';
         string request{ clsInputValidate::ReadString(message) };
         transform(request.begin(), request.end(), request.begin(), ::tolower);
-        return request == "yes";
+        return request == "yes" || request == "y";
     }
 
 };

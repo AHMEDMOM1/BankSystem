@@ -66,7 +66,7 @@ class EmployeesMainScreen : protected Screen {
 		}
 		case LoginRegister: {
 			ShowLoginRegisterScreen loginRegScreen;
-			loginRegScreen.show();
+			loginRegScreen.show(user);
 			break;
 		}
 		case Back:

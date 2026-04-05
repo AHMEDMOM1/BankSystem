@@ -31,7 +31,7 @@ class WithdrawScreen : protected ClientScreenBase {
 	}
 public:
 	WithdrawScreen(ClientManager& manager) : ClientScreenBase(manager) {}
-	void show(const CurrentUser& user) {
+	void show() {
 		showGlobalScreen("Withdraw Screen");
 
 		do {

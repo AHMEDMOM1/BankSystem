@@ -7,6 +7,7 @@
 
 class ClientManager {
     IClientRepo& _repo;
+
 public:
     ClientManager(IClientRepo& repo) : _repo(repo) {}
     bool addNew(const Client& client) {
@@ -48,6 +49,14 @@ public:
         }
 
         return totalBalance;
+    }
+
+    bool transfre(Client& fromClient, Client& toClient, const double& amount) {
+
+        fromClient.setBalance(fromClient.getBalance() - amount);
+        toClient.setBalance(toClient.getBalance() + amount);
+
+        return update(fromClient) && update(toClient);
     }
 
 };

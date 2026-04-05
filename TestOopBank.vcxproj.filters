@@ -37,6 +37,9 @@
     <Filter Include="Header Files\Utility">
       <UniqueIdentifier>{38ae3668-829f-4e56-9dac-98f881ec3770}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\UI\Client\Transiction">
+      <UniqueIdentifier>{099e127d-83d9-473e-9d39-92ad2aa2f116}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestOopBank.cpp">
@@ -107,18 +110,6 @@
     <ClInclude Include="UI\Client\ClientScreenBase.h">
       <Filter>Header Files\UI\Client</Filter>
     </ClInclude>
-    <ClInclude Include="UI\Client\DepoScreen.h">
-      <Filter>Header Files\UI\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Client\TransictionScreen.h">
-      <Filter>Header Files\UI\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Client\WithdScreen.h">
-      <Filter>Header Files\UI\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Client\TotalBalanceScreen.h">
-      <Filter>Header Files\UI\Client</Filter>
-    </ClInclude>
     <ClInclude Include="UI\Client\ManageEmployeesScreen.h">
       <Filter>Header Files\UI\Client</Filter>
     </ClInclude>
@@ -160,6 +151,21 @@
     </ClInclude>
     <ClInclude Include="Models\LoginRecord.h">
       <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\Transiction\DepoScreen.h">
+      <Filter>Header Files\UI\Client\Transiction</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\Transiction\TotalBalanceScreen.h">
+      <Filter>Header Files\UI\Client\Transiction</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\Transiction\TransictionScreen.h">
+      <Filter>Header Files\UI\Client\Transiction</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\Transiction\WithdScreen.h">
+      <Filter>Header Files\UI\Client\Transiction</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Client\Transiction\TransferScreen.h">
+      <Filter>Header Files\UI\Client\Transiction</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
