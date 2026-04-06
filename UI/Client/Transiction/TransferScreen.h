@@ -21,7 +21,7 @@ class TransferScreen : protected ClientScreenBase
 		return validAmount;
 	}
 
-	enTransferState _TransFer(Client& fromClient, Client& toClient) {
+	enTransferState _TransFer(const CurrentUser& user, Client& fromClient, Client& toClient, double& amount) {
 
 		fromClient = _GetClient("Enter the account number you want to send from: ");
 		if (fromClient.isEmpty())
@@ -39,15 +39,15 @@ class TransferScreen : protected ClientScreenBase
 			return SameAccount;
 
 
-		double amount{ _getValidAmount(fromClient) };
+		amount = _getValidAmount(fromClient);
 		
 		if (!_ConfirmAction())
 			return CanceledTrans;
 
-		if (_manager.transfre(fromClient, toClient, amount))
-			return Successed;
+		if (!_manager.transfre(user, fromClient, toClient, amount))
+			return FailedTrans;
 
-		return FailedTrans;
+		return Successed;
 	}
 
 	void _PrintStateMassage(enTransferState enTransSt) {
@@ -73,21 +73,22 @@ class TransferScreen : protected ClientScreenBase
 
 public:
 	TransferScreen(ClientManager& manager) : ClientScreenBase(manager) {}
-	void show() {
+	void show(const CurrentUser& user) {
 		showGlobalScreen("Transfer Screeen");
 
-		Client fromClient{};
-		Client toClient{};
+		Client sender{};
+		Client recipient{};
+		double amount{};
 
-		enTransferState enTransSt = _TransFer(fromClient, toClient);
+		enTransferState enTransSt = _TransFer(user, sender, recipient, amount);
 
 		system("cls");
 		showGlobalScreen("Transfer Screen");
 
 		_PrintStateMassage(enTransSt);
 		if (enTransSt == Successed) {
-			_Print(fromClient);
-			_Print(toClient);
+			_Print(sender);
+			_Print(recipient);
 		}
 	}
 };

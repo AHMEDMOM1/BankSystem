@@ -2,12 +2,15 @@
 #include <iostream>
 #include <vector>
 
+#include "Employee.h"
+#include "ITransferLog.h"
 #include "UserLoginFile.h"
 #include "IEmployeeRepo.h"
-#include "Employee.h"
+
 
 class EmployeeManager {
     IEmployeeRepo& _repo;
+
     // UserLoginFile& _userLog;
 
 public:
@@ -38,8 +41,6 @@ public:
         return _repo.getAll();
     }
 
-    bool UserLog() {
-
-    }
+   
 
 };

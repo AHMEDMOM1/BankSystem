@@ -1,4 +1,5 @@
 
+#include "TransferLogFile.h"
 #include "EmployeeManager.h"
 #include "FileEmployeeRepo.h"
 
@@ -17,7 +18,8 @@ int main() {
 	EmployeeManager empManager{ empRepo };
 	
 	FileClientRepo clntRepo{ "Client.txt" };
-	ClientManager clntManager{ clntRepo };
+    TransferLogFile transLog{ "TransFerLog.txt" };
+	ClientManager clntManager{ clntRepo, transLog };
     
    int i{ 3 };
     CurrentUser sessionUser;

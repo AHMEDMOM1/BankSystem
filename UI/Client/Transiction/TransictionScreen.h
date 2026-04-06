@@ -43,7 +43,7 @@ class TransictionScreen : protected Screen
 		}
 		case Transfer: {
 			TransferScreen trans(_manager);
-			trans.show();
+			trans.show(user);
 			break;
 		}
 		default:

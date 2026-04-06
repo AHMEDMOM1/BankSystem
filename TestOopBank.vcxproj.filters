@@ -167,5 +167,14 @@
     <ClInclude Include="UI\Client\Transiction\TransferScreen.h">
       <Filter>Header Files\UI\Client\Transiction</Filter>
     </ClInclude>
+    <ClInclude Include="Repository\TransferLogFile.h">
+      <Filter>Header Files\Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\TransferRecord.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\ITransferLog.h">
+      <Filter>Header Files\Interface</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

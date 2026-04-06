@@ -2,14 +2,17 @@
 
 #include <vector>
 
+#include "ITransferLog.h"
 #include "IClientRepo.h"
 #include "Client.h"
 
 class ClientManager {
     IClientRepo& _repo;
+    ITransferLog& _log;
 
 public:
-    ClientManager(IClientRepo& repo) : _repo(repo) {}
+    ClientManager(IClientRepo& repo, ITransferLog& log) : _repo(repo), _log(log) {}
+
     bool addNew(const Client& client) {
         if(_repo.existAccount(client.getAccountNumber())) 
             return false;
@@ -51,12 +54,13 @@ public:
         return totalBalance;
     }
 
-    bool transfre(Client& fromClient, Client& toClient, const double& amount) {
+    bool transfre(const CurrentUser& user, Client& sender, Client& rec, const double amount) {
 
-        fromClient.setBalance(fromClient.getBalance() - amount);
-        toClient.setBalance(toClient.getBalance() + amount);
+        sender.setBalance(sender.getBalance() - amount);
+        rec.setBalance(rec.getBalance() + amount);
 
-        return update(fromClient) && update(toClient);
+        if(update(sender) && update(rec))
+            return _log.recordTransferProcess(user, sender, rec, amount);
     }
 
 };
