@@ -16,10 +16,9 @@ class UserLoginFile
 	std::string _delim{};
 
     std::string _ConvertCurrentUserToLine(const CurrentUser& user) {
-        clsDate date{};
         const Employee& emp = user.getEmployee();
 
-        return { date.GetSystemDateTimeString() + _delim + 
+        return { clsDate::GetSystemDateTimeString() + _delim +
                  emp.getUserName()  + _delim + emp.getPassword() + _delim + std::to_string(emp.getPermissions()) };
     }
 
@@ -52,7 +51,7 @@ public:
         std::vector<LoginRecord> vRecords{};
         std::fstream myFile{};
         myFile.open(_fileName, std::ios::in);
-        if (myFile.is_open()) {
+        if (myFile) {
             std::string line;
             while (std::getline(myFile, line)) {
                 if (!line.empty())

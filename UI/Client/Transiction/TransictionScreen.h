@@ -9,6 +9,7 @@
 #include "ClientManager.h"
 #include "TransferScreen.h"
 #include "clsInputValidate.h"
+#include "TransferLogScreen.h"
 #include "TotalBalanceScreen.h"
 
 using namespace std;
@@ -16,7 +17,7 @@ using namespace std;
 class TransictionScreen : protected Screen
 {
 	ClientManager& _manager;
-	enum _enChoise { Depo = 1, Withd, TotalBalance, Transfer } _choise{};
+	enum _enChoise { Depo = 1, Withd, TotalBalance, Transfer, TransFerShow } _choise{};
 	_enChoise _GetChosie() {
 			cout << setw(30) << ' ';
 		short choise{
@@ -46,6 +47,11 @@ class TransictionScreen : protected Screen
 			trans.show(user);
 			break;
 		}
+		case TransFerShow: {
+			TransferLogScreen transShow(_manager);
+			transShow.show();
+			break;
+		}
 		default:
 			return;
 		}
@@ -55,8 +61,9 @@ class TransictionScreen : protected Screen
 		cout << setw(30) << ' ' << '[' << Depo << ']' << ". Deposite" << endl;
 		cout << setw(30) << ' ' << '[' << Withd << ']' << ". Withdraw" << endl;
 		cout << setw(30) << ' ' << '[' << TotalBalance << ']' << ". Show Total Balance" << endl;
-		cout << setw(30) << ' ' << '[' << Transfer << ']' << ". Transform" << endl;
-		cout << setw(30) << ' ' << "[5]. Main Screen" << endl;
+		cout << setw(30) << ' ' << '[' << Transfer << ']' << ". Transfer" << endl;
+		cout << setw(30) << ' ' << '[' << TransFerShow << ']' << ". Transfer Login Screen" << endl;
+		cout << setw(30) << ' ' << "[6]. Main Screen" << endl;
 		cout << setw(30) << ' ' << "------------------" << '\n';
 	}
 public:

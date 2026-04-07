@@ -43,8 +43,6 @@ int main() {
     } while (i > 0);
 
 
-
-
     return 0;
 }
 

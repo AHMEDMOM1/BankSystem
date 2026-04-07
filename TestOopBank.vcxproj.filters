@@ -176,5 +176,8 @@
     <ClInclude Include="Interface\ITransferLog.h">
       <Filter>Header Files\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="UI\Client\Transiction\TransferLogScreen.h">
+      <Filter>Header Files\UI\Client\Transiction</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

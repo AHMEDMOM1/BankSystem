@@ -155,6 +155,7 @@
     <ClInclude Include="UI\Client\ManageEmployeesScreen.h" />
     <ClInclude Include="UI\Client\Transiction\DepoScreen.h" />
     <ClInclude Include="UI\Client\Transiction\TotalBalanceScreen.h" />
+    <ClInclude Include="UI\Client\Transiction\TransferLogScreen.h" />
     <ClInclude Include="UI\Client\Transiction\TransferScreen.h" />
     <ClInclude Include="UI\Client\Transiction\TransictionScreen.h" />
     <ClInclude Include="UI\Client\Transiction\WithdScreen.h" />

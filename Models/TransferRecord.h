@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-struct TransRecord {
+struct TransferRecord {
 	std::string date{};
 	std::string senderAccount{};
 	std::string recipientAccount{};

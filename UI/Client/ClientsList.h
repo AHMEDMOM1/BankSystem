@@ -144,7 +144,7 @@ class ClientsList : protected Screen
 
 	// ─── Main Logic ──────────────────────────────────────────────
 	void _ShowList() {
-		vector<Client> clients{ _manager.loadAll() };
+		vector<Client> clients{ _manager.loadAllClients() };
 		double totalBalance{_manager.getTotalBalance()};
 		string strTotalBalance{ clsUtil::getStringOfTotal(totalBalance) };
 

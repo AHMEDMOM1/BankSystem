@@ -16,7 +16,7 @@ public:
     bool addNew(const Client& client) {
         if(_repo.existAccount(client.getAccountNumber())) 
             return false;
-        
+
         return _repo.add(client);
     }
     bool update(const Client& client) {
@@ -37,12 +37,16 @@ public:
         return _repo.existAccount(account);
     }
     
-    std::vector<Client> loadAll() {
+    std::vector<Client> loadAllClients() {
         return _repo.getAll();
     }
 
+    std::vector<TransferRecord> loadAlllRecords() {
+        return _log.loadAllRecords();
+    }
+
     double getTotalBalance() {
-        vector<Client>clients{ loadAll() };
+        vector<Client>clients{ loadAllClients() };
         double totalBalance{};
 
         if (!clients.empty()) {
@@ -61,6 +65,8 @@ public:
 
         if(update(sender) && update(rec))
             return _log.recordTransferProcess(user, sender, rec, amount);
+
+        return false;
     }
 
 };
