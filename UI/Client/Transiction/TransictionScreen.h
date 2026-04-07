@@ -17,7 +17,7 @@ using namespace std;
 class TransictionScreen : protected Screen
 {
 	ClientManager& _manager;
-	enum _enChoise { Depo = 1, Withd, TotalBalance, Transfer, TransFerShow } _choise{};
+	enum _enChoise { Depo = 1, Withd, TotalBalance, Transfer, TransFerShow, Back };
 	_enChoise _GetChosie() {
 			cout << setw(30) << ' ';
 		short choise{
@@ -89,9 +89,11 @@ public:
 
 			_DirectToScreen(choise, user);
 
+			if (choise >= Back)break;
+
 			system("pause");
 
-		} while (choise <= 4);
+		} while (true);
 	}
 
 };

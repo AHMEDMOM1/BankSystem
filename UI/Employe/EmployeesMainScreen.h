@@ -94,7 +94,7 @@ public:
 
 			_DirectToScreen(_choise, user);
 
-			if (_choise == Back)
+			if (_choise >= Back)
 				break;
 
 			system("pause");

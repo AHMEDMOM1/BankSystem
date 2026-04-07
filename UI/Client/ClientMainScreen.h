@@ -18,7 +18,7 @@
 using namespace std;
 class ClientMainScreen : protected Screen {
 	ClientManager& _clntManager;
-	enum enChoise { Add = 1, Delete, Update, Find, ShowList, Trans } _choise{};
+	enum enChoise { Add = 1, Delete, Update, Find, ShowList, Trans, Back } _choise{};
 	void _PrintBody() {
 		cout << setw(30) << ' ' << '[' << Add << ']' << ". Add" << endl;
 		cout << setw(30) << ' ' << '[' << Delete << ']' << ". Delete" << endl;
@@ -73,6 +73,9 @@ class ClientMainScreen : protected Screen {
 			transScreen.show(user);
 			break;
 		}
+		case Back: {
+			return;
+		}
 		default:
 			return;
 		}
@@ -90,7 +93,9 @@ public:
 			system("cls");
 			_DirectToScreen(_choise, user);
 
-			system("pause");
+			if (_choise >= Back)break;
+			else if(_choise < Trans)
+				system("pause");
 
 		} while (true);
 	}
