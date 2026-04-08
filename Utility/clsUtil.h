@@ -247,4 +247,27 @@ public:
 
     return line;
   }
+
+  static string _Encryption(string pass, const short keyOne = 5, const short keyTwo = 3) {
+
+        for (int i{}; i < pass.length(); i++) {
+            if (i % 2 == 0)
+                pass.at(i) += keyOne;
+            else
+                pass.at(i) -= keyTwo;
+        }
+
+        return pass;
+  }
+
+  static string _Decryption(string encryptedPassword, const short keyOne = 5, const short keyTwo = 3) {
+
+        for (int i{}; i < encryptedPassword.length(); i++) {
+            if (i % 2 == 0)
+                encryptedPassword.at(i) -= keyOne;
+            else
+                encryptedPassword.at(i) += keyTwo;
+        }
+        return encryptedPassword;
+  }
 };

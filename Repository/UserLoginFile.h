@@ -5,8 +5,9 @@
 #include <vector>
 
 #include "clsDate.h"
-#include "clsString.h"
+#include "clsUtil.h"
 #include "Employee.h"
+#include "clsString.h"
 #include "CurrentUser.h"
 #include "LoginRecord.h"
 
@@ -19,7 +20,7 @@ class UserLoginFile
         const Employee& emp = user.getEmployee();
 
         return { clsDate::GetSystemDateTimeString() + _delim +
-                 emp.getUserName()  + _delim + emp.getPassword() + _delim + std::to_string(emp.getPermissions()) };
+                 emp.getUserName()  + _delim + clsUtil::_Encryption(emp.getPassword()) + _delim + std::to_string(emp.getPermissions())};
     }
 
     LoginRecord _ConvertLineToRecord(const std::string& line) {
@@ -54,8 +55,14 @@ public:
         if (myFile) {
             std::string line;
             while (std::getline(myFile, line)) {
-                if (!line.empty())
-                    vRecords.push_back(_ConvertLineToRecord(line));
+                if (line.empty())continue;
+
+                LoginRecord record{ _ConvertLineToRecord(line) };
+                std::string decryptedPassword = clsUtil::_Decryption(record.password);
+                record.password = decryptedPassword;
+
+                vRecords.push_back(record);
+                   
             }
             myFile.close();
         }

@@ -14,13 +14,14 @@ class FileEmployeeRepo : public IEmployeeRepo {
     std::string _fileName{ };
     std::string _delim{ };
 
+
     std::string _ConvertUserToLine(const Employee& Employee) {
         return { Employee.getName() + _delim +
                 Employee.getSurName() + _delim +
                 Employee.getPhoneNumber() + _delim +
                 Employee.getEmail() + _delim +
                 Employee.getUserName() + _delim +
-                Employee.getPassword() + _delim + 
+                clsUtil::_Encryption(Employee.getPassword()) + _delim +
                 std::to_string(Employee.getPermissions())};
     }
 
@@ -79,7 +80,12 @@ public:
             string line{};
 
             while (getline(iFile, line)) {
-                Employee Employee{_ConvertLineToUser(line)};
+                if (line.empty())continue;
+
+                Employee Employee{ _ConvertLineToUser(line) };
+                std::string decryptedPassword = clsUtil::_Decryption(Employee.getPassword());
+
+                Employee.setPassword(decryptedPassword);
                 users.push_back(Employee);
             }
             iFile.close();
