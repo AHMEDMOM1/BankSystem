@@ -10,6 +10,7 @@
 #include "TransictionScreen.h"
 #include "DeleteClientScreen.h"
 #include "UpdateClientScreen.h"
+#include "CurrenciesMainScreen.h"
 
 
 // 1. print main screen
@@ -18,15 +19,16 @@
 using namespace std;
 class ClientMainScreen : protected Screen {
 	ClientManager& _clntManager;
-	enum enChoise { Add = 1, Delete, Update, Find, ShowList, Trans, Back } _choise{};
+	enum enChoise { Add = 1, Delete, Update, Find, ShowList, Trans, Currency, Back } _choise{};
 	void _PrintBody() {
 		cout << setw(30) << ' ' << '[' << Add << ']' << ". Add" << endl;
 		cout << setw(30) << ' ' << '[' << Delete << ']' << ". Delete" << endl;
 		cout << setw(30) << ' ' << '[' << Update << ']' << ". Update" << endl;
 		cout << setw(30) << ' ' << '[' << Find << ']' << ". Find" << endl;
 		cout << setw(30) << ' ' << '[' << ShowList << ']' << ". Show List" << endl;
+		cout << setw(30) << ' ' << '[' << Currency << ']' << ". Currencies" << endl;
 		cout << setw(30) << ' ' << '[' << Trans << ']' << ". Transiction" << endl;
-		cout << setw(30) << ' ' << "[7]. Login Screen" << endl;
+		cout << setw(30) << ' ' << "[8]. Login Screen" << endl;
 		cout << setw(30) << ' ' << "------------" << '\n';
 	}
 	void _PrintMainScreen(const std::string& userName) {
@@ -68,6 +70,11 @@ class ClientMainScreen : protected Screen {
 			clienstList.show(user);
 			break;
 		}
+		case Currency: {
+			CurrenciesMainScreen currMainScreen{};
+			currMainScreen.show();
+			break;
+		}
 		case Trans: {
 			TransictionScreen transScreen(_clntManager);
 			transScreen.show(user);
@@ -94,7 +101,7 @@ public:
 			_DirectToScreen(_choise, user);
 
 			if (_choise >= Back)break;
-			else if(_choise < Trans)
+			else if(_choise != Trans)
 				system("pause");
 
 		} while (true);

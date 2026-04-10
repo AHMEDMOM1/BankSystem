@@ -3,6 +3,7 @@
 #include "EmployeeManager.h"
 #include "FileEmployeeRepo.h"
 
+#include "CurrenciesFile.h"
 #include "UserLoginFile.h"
 #include "FileClientRepo.h"
 #include "ClientManager.h"
@@ -14,7 +15,8 @@
 using namespace std;
 
 int main() {
-	FileEmployeeRepo empRepo{ "Employee.txt" };
+	
+    FileEmployeeRepo empRepo{ "Employee.txt" };
 	EmployeeManager empManager{ empRepo };
 	
 	FileClientRepo clntRepo{ "Client.txt" };
@@ -42,6 +44,9 @@ int main() {
 
     } while (i > 0);
 
+    
+
+        
 
     return 0;
 }

@@ -102,7 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)UI;$(ProjectDir)UI/Client;$(ProjectDir)UI/Employe;$(ProjectDir)Repository;$(ProjectDir)Services;$(ProjectDir)Models;$(ProjectDir)Utility;$(ProjectDir)Interface;$(ProjectDir);$(ProjectDir)UI/Client/Transiction</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)UI;$(ProjectDir)UI/Client;$(ProjectDir)UI/Currency;$(ProjectDir)UI/Employe;$(ProjectDir)Repository;$(ProjectDir)Services;$(ProjectDir)Models;$(ProjectDir)Utility;$(ProjectDir)Interface;$(ProjectDir);$(ProjectDir)UI/Client/Transiction</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,18 +133,22 @@
     <ClInclude Include="..\oopBankProject\UserfullLb\clsUtil.h" />
     <ClInclude Include="CurrentUser.h" />
     <ClInclude Include="Interface\IClientRepo.h" />
+    <ClInclude Include="Interface\ICurrenciesRepo.h" />
     <ClInclude Include="Interface\IEmployeeRepo.h" />
     <ClInclude Include="Interface\ITransferLog.h" />
     <ClInclude Include="Models\Client.h" />
+    <ClInclude Include="Models\CurrenciesRecord.h" />
     <ClInclude Include="Models\LoginRecord.h" />
     <ClInclude Include="Models\Person.h" />
     <ClInclude Include="Models\Employee.h" />
     <ClInclude Include="Models\TransferRecord.h" />
+    <ClInclude Include="Repository\CurrenciesFile.h" />
     <ClInclude Include="Repository\FileClientRepo.h" />
     <ClInclude Include="Repository\FileEmployeeRepo.h" />
     <ClInclude Include="Repository\TransferLogFile.h" />
     <ClInclude Include="Repository\UserLoginFile.h" />
     <ClInclude Include="Services\ClientManager.h" />
+    <ClInclude Include="Services\CurrencyManager.h" />
     <ClInclude Include="Services\EmployeeManager.h" />
     <ClInclude Include="UI\Client\AddClientScreen.h" />
     <ClInclude Include="UI\Client\ClientMainScreen.h" />
@@ -160,6 +164,10 @@
     <ClInclude Include="UI\Client\Transiction\TransictionScreen.h" />
     <ClInclude Include="UI\Client\Transiction\WithdScreen.h" />
     <ClInclude Include="UI\Client\UpdateClientScreen.h" />
+    <ClInclude Include="UI\Currency\CurrenciesMainScreen.h" />
+    <ClInclude Include="UI\Currency\FindCurrencyScreen.h" />
+    <ClInclude Include="UI\Currency\ShowAllCurrenciesScreen.h" />
+    <ClInclude Include="UI\Currency\UpdateCurrencyScreen.h" />
     <ClInclude Include="UI\Employe\AddEmployeeScreen.h" />
     <ClInclude Include="UI\Employe\DeleteEmployeeScreen.h" />
     <ClInclude Include="UI\Employe\EmployeeScreenBase.h" />

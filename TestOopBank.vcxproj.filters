@@ -40,6 +40,9 @@
     <Filter Include="Header Files\UI\Client\Transiction">
       <UniqueIdentifier>{099e127d-83d9-473e-9d39-92ad2aa2f116}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\UI\Currency">
+      <UniqueIdentifier>{abdb095f-0496-4023-9e47-d4fa940254e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestOopBank.cpp">
@@ -178,6 +181,30 @@
     </ClInclude>
     <ClInclude Include="UI\Client\Transiction\TransferLogScreen.h">
       <Filter>Header Files\UI\Client\Transiction</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\ICurrenciesRepo.h">
+      <Filter>Header Files\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository\CurrenciesFile.h">
+      <Filter>Header Files\Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\CurrenciesRecord.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\CurrencyManager.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Currency\FindCurrencyScreen.h">
+      <Filter>Header Files\UI\Currency</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Currency\ShowAllCurrenciesScreen.h">
+      <Filter>Header Files\UI\Currency</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Currency\UpdateCurrencyScreen.h">
+      <Filter>Header Files\UI\Currency</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Currency\CurrenciesMainScreen.h">
+      <Filter>Header Files\UI\Currency</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
