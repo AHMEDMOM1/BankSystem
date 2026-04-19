@@ -12,7 +12,7 @@ class UpdateEmployeeScreen : protected EmployeeScreenBase {
 
 
 	bool _WantAllPermision() {
-		cout << setw(30) << ' ' << "Do you need give to employee All Permisions? (yes/no): ";
+		_PrintStartBlank(30); cout << "Do you need give to employee All Permisions? (yes/no): ";
 		return clsInputValidate::wantToApprove();
 	}
 
@@ -35,7 +35,7 @@ class UpdateEmployeeScreen : protected EmployeeScreenBase {
 
 		int perm{};
 		for (const auto& item : permissions) {
-			cout << setw(30) << ' ' << item.question;
+			_PrintStartBlank(30); cout << item.question;
 			if (clsInputValidate::wantToApprove())
 				perm |= static_cast<int>(item.flag);
 		}

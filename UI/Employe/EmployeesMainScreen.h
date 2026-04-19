@@ -16,14 +16,14 @@ class EmployeesMainScreen : protected Screen {
 
     enum enChoise { Add = 1, Delete, Update, Find, ShowList, LoginRegister, Back } _choise{};
     void _PrintBody() {
-        cout << setw(30) << ' ' << '[' << Add << ']' << ".Add Employee" << endl;
-        cout << setw(30) << ' ' << '[' << Delete << ']' << ".Delete Employee" << endl;
-        cout << setw(30) << ' ' << '[' << Update << ']' << ".Update Employee" << endl;
-        cout << setw(30) << ' ' << '[' << Find << ']' << ".Find Employee" << endl;
-        cout << setw(30) << ' ' << '[' << ShowList << ']' << ".Show List Employees" << endl;
-        cout << setw(30) << ' ' << '[' << LoginRegister << ']' << ".Login Register" << endl;
-		cout << setw(30) << ' ' << '[' << Back << ']' << ".Main Screen" << endl;
-        cout << setw(30) << ' ' << "------------" << '\n';
+        _PrintStartBlank(30); cout << '[' << Add << ']' << ".Add Employee" << endl;
+        _PrintStartBlank(30); cout << '[' << Delete << ']' << ".Delete Employee" << endl;
+        _PrintStartBlank(30); cout << '[' << Update << ']' << ".Update Employee" << endl;
+        _PrintStartBlank(30); cout << '[' << Find << ']' << ".Find Employee" << endl;
+        _PrintStartBlank(30); cout << '[' << ShowList << ']' << ".Show List Employees" << endl;
+        _PrintStartBlank(30); cout << '[' << LoginRegister << ']' << ".Login Register" << endl;
+		_PrintStartBlank(30); cout << '[' << Back << ']' << ".Main Screen" << endl;
+        _PrintStartBlank(30); cout << "------------" << '\n';
     }
 	void _PrintEmployeeMainScreen(const std::string& userName) {
 		showGlobalScreen("Employees Main Screen (" + userName + ')');
@@ -32,7 +32,7 @@ class EmployeesMainScreen : protected Screen {
 
 	enChoise getChoise() {
 		short choise{};
-		cout << setw(30) << ' ' << "Enter Choise: ";
+		_PrintStartBlank(30); cout << "Enter Choise: ";
 		cin >> choise;
 		return static_cast<enChoise>(choise);
 	}

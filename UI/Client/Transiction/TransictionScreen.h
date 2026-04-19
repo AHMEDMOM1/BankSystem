@@ -19,7 +19,7 @@ class TransictionScreen : protected Screen
 	ClientManager& _manager;
 	enum _enChoise { Depo = 1, Withd, TotalBalance, Transfer, TransFerShow, Back };
 	_enChoise _GetChosie() {
-			cout << setw(30) << ' ';
+			_PrintStartBlank(30);
 		short choise{
 			static_cast<short>(clsInputValidate::ReadIntNumber("Chosie: "))
 		};
@@ -58,13 +58,13 @@ class TransictionScreen : protected Screen
 	}
 
 	void _PrintBody() {
-		cout << setw(30) << ' ' << '[' << Depo << ']' << ". Deposite" << endl;
-		cout << setw(30) << ' ' << '[' << Withd << ']' << ". Withdraw" << endl;
-		cout << setw(30) << ' ' << '[' << TotalBalance << ']' << ". Show Total Balance" << endl;
-		cout << setw(30) << ' ' << '[' << Transfer << ']' << ". Transfer" << endl;
-		cout << setw(30) << ' ' << '[' << TransFerShow << ']' << ". Transfer Log Screen" << endl;
-		cout << setw(30) << ' ' << "[6]. Main Screen" << endl;
-		cout << setw(30) << ' ' << "------------------" << '\n';
+		_PrintStartBlank(30); cout << '[' << Depo << ']' << ". Deposite" << endl;
+		_PrintStartBlank(30); cout << '[' << Withd << ']' << ". Withdraw" << endl;
+		_PrintStartBlank(30); cout << '[' << TotalBalance << ']' << ". Show Total Balance" << endl;
+		_PrintStartBlank(30); cout << '[' << Transfer << ']' << ". Transfer" << endl;
+		_PrintStartBlank(30); cout << '[' << TransFerShow << ']' << ". Transfer Log Screen" << endl;
+		_PrintStartBlank(30); cout << "[6]. Main Screen" << endl;
+		_PrintStartBlank(30); cout << "------------------" << '\n';
 	}
 public:
 	

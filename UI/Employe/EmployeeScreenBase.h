@@ -28,12 +28,12 @@ protected:
 
     void _CardLine(char ch = '-') {
         _SetColor(_CYAN);
-        cout << setw(30) << ' ' << setw(CARD_W) << setfill(ch) << ch << setfill(' ') << endl;
+        _PrintStartBlank(30); cout << setw(CARD_W) << setfill(ch) << ch << setfill(' ') << endl;
         _ResetColor();
     }
 
     void _CardRow(const string& label, const string& value) {
-        _SetColor(_CYAN);        cout << setw(30) << ' ' << "| ";
+        _SetColor(_CYAN);        _PrintStartBlank(30); cout << "| ";
         _SetColor(_YELLOW);      cout << left << setw(14) << label;
         _SetColor(_BRIGHT_WHITE);cout << setw(CARD_W - 18) << value;
         _SetColor(_CYAN);        cout << "|" << endl;
@@ -49,7 +49,7 @@ protected:
 
         // ── Header with username ──
         _CardLine('=');
-        _SetColor(_CYAN);       cout << setw(30) << ' ' << "| ";
+        _SetColor(_CYAN);       _PrintStartBlank(30); cout << "| ";
         _SetColor(_GREY);       cout << setw(pad) << setfill('-') << '-';
         _SetColor(_LIGHT_GREEN);cout << ' ' << uname << ' ';
         _SetColor(_GREY);       cout << setw(CARD_W - pad - uLen - 6) << setfill('-') << '-';
@@ -70,7 +70,7 @@ protected:
 
     // ??? Shared: Yes/No Question 
     bool _RequestRepetition(const string& message) {
-        cout << setw(30) << ' ';
+        _PrintStartBlank(30);
         string rep{ clsInputValidate::ReadString(message) };
         transform(rep.begin(), rep.end(), rep.begin(), ::tolower);
         return rep == "yes" || rep == "y";
@@ -83,23 +83,23 @@ protected:
 
     // ??? Shared: Fill Employee Info 
     void _FillInfo(Employee& Employee) {
-        cout << setw(30) << ' '; Employee.setName(clsInputValidate::ReadString("Name: "));
-        cout << setw(30) << ' '; Employee.setSurName(clsInputValidate::ReadString("lastName: "));
-        cout << setw(30) << ' '; Employee.setPhoneNumber(clsInputValidate::ReadString("Phone: "));
-        cout << setw(30) << ' '; Employee.setEmail(clsInputValidate::ReadString("Email: "));
-        cout << setw(30) << ' '; Employee.setPassword(clsInputValidate::ReadString(("Password: ")));
+        _PrintStartBlank(30); Employee.setName(clsInputValidate::ReadString("Name: "));
+        _PrintStartBlank(30); Employee.setSurName(clsInputValidate::ReadString("lastName: "));
+        _PrintStartBlank(30); Employee.setPhoneNumber(clsInputValidate::ReadString("Phone: "));
+        _PrintStartBlank(30); Employee.setEmail(clsInputValidate::ReadString("Email: "));
+        _PrintStartBlank(30); Employee.setPassword(clsInputValidate::ReadString(("Password: ")));
     }
 
     // ??? Shared: Try Find Existing Account 
     bool _TryExistAccount(string& account) {
         do {
-            cout << setw(30) << ' ';
+            _PrintStartBlank(30);
             account = clsInputValidate::ReadString("Enter Existing Account: ");
 
            if (_employeeManager.isExistAccount(account))
                 return true;
 
-            cout << setw(30) << ' ' << "--> Error: Account Not Found!\n";
+            _PrintStartBlank(30); cout << "--> Error: Account Not Found!\n";
 
         } while (_WantsToTryAnotherAccount());
         return false;
@@ -114,7 +114,7 @@ protected:
     }
     // ??? Shared: Confirm Action 
     bool _ConfirmAction(const string& message = "Are You Sure (Yes/No): ") {
-        cout << setw(30) << ' ';
+        _PrintStartBlank(30);
         string request{ clsInputValidate::ReadString(message) };
         transform(request.begin(), request.end(), request.begin(), ::tolower);
         return request == "yes" || request == "y";

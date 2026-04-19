@@ -27,11 +27,11 @@ private:
         Employee employee{_employeeManager.find(userName)};
 
         if(employee.isEmpty()){
-            cout << setw(30) << ' ' << "--> Error: UserName not found!\n";
+            _PrintStartBlank(30); cout << "--> Error: UserName not found!\n";
             return false;
         }
         else if(employee.getPassword() != passWord){
-            cout << setw(30) << ' ' << "--> Error: Password Incorrect!!\n";
+            _PrintStartBlank(30); cout << "--> Error: Password Incorrect!!\n";
             return false;
         }
 
@@ -43,12 +43,12 @@ bool checkIfUserZero(const std::string& user) {
 }
 
 string _InputUserName() {
-    cout << setw(30) << ' ';
+    _PrintStartBlank(30);
     return clsInputValidate::ReadString("Enter UserName: ");
 }
 
 string _InputPassWord() {
-    cout << setw(30) << ' ';
+    _PrintStartBlank(30);
     return clsInputValidate::ReadString("Enter PassWord: ");
 }
 
@@ -83,7 +83,7 @@ public:
 
             if (result == StartScreen::LoginStatus::Failed) {
                 i--;
-                cout << setw(30) << ' ' << "You Have " << i << " Trying!!" << endl;
+                _PrintStartBlank(30); cout << "You Have " << i << " Trying!!" << endl;
             }
             else if (result == StartScreen::LoginStatus::Canceled) return 0;
             else {

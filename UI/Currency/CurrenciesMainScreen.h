@@ -16,10 +16,10 @@ public:
 	CurrenciesMainScreen(CurrencyManager& manager) : _manager(manager) {}
 	void _printBody() {
 
-		cout << setw(30) << ' ' << '[' << Find << ']' << ".Find" << endl;
-		cout << setw(30) << ' ' << '[' << Update << ']' << ".Update" << endl;
-		cout << setw(30) << ' ' << '[' << ShowAll << ']' << ".Show Currencies List" << endl;
-		cout << setw(30) << ' ' << '[' << Back << ']' << ".Go Back" << endl;
+		_PrintStartBlank(30); cout << '[' << Find << ']' << ".Find" << endl;
+		_PrintStartBlank(30); cout << '[' << Update << ']' << ".Update" << endl;
+		_PrintStartBlank(30); cout << '[' << ShowAll << ']' << ".Show Currencies List" << endl;
+		_PrintStartBlank(30); cout << '[' << Back << ']' << ".Go Back" << endl;
 
 	}
 	void _PrintMainScreen() {
@@ -52,8 +52,8 @@ public:
 
 	CurrencyOp getChoise() {
 		short choise{};
-		cout << setw(30) << ' ' << "------------" << '\n';
-		cout << setw(30) << ' ' << "Enter Choise: ";
+		_PrintStartBlank(30); cout << "------------" << '\n';
+		_PrintStartBlank(30); cout << "Enter Choise: ";
 		cin >> choise;
 		return static_cast<CurrencyOp>(choise);
 	}

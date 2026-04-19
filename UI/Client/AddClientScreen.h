@@ -12,12 +12,12 @@ class AddClientScreen : protected ClientScreenBase {
 
 	bool _TryReadNewAccount(string& account) {
 		do {
-			cout << setw(30) << ' ';
+			_PrintStartBlank(30);
 			account = clsInputValidate::ReadString("Enter New Account: ");
 			if (!_manager.existAccount(account)) {
 				return true;
 			}
-			cout << setw(30) << ' ' << "--> Error: Account already exists!\n";
+			_PrintStartBlank(30); cout << "--> Error: Account already exists!\n";
 
 		} while (_WantsToTryAnotherAccount());
 		return false;
@@ -50,10 +50,13 @@ public:
 			if (client.isEmpty()) 
 				return;
 
-			_manager.addNew(client);
-
-			cout << "\n" << setw(30) << ' ' << "--> Client Added Successfully!\n";
-			_Print(client);
+			if (_manager.addNew(client)) {
+				cout << "\n"; _PrintStartBlank(30); cout << "--> Client Added Successfully!\n";
+				_Print(client);
+			}
+			else {
+				cout << "\n"; _PrintStartBlank(30); cout << "--> Error: Adding Client Failed!\n";
+			}
 
 		} while (_WantsToAddAnotherClient());
 

@@ -12,7 +12,7 @@ class FindEmployeeScreen : protected EmployeeScreenBase {
 
 
 	bool _WantAllPermision() {
-		cout << setw(30) << ' ' << "Do you need give to employee All Permisions? (yes/no): ";
+		_PrintStartBlank(30); cout << "Do you need give to employee All Permisions? (yes/no): ";
 		return clsInputValidate::wantToApprove();
 	}
 

@@ -17,10 +17,10 @@ class MainScreen : protected Screen {
 
   enum enChoise { Employee = 1, Client, Logout } _choise{};
   void _PrintBody() {
-    cout << setw(30) << ' ' << '[' << Employee << ']' << ".Employee Manage" << endl;
-    cout << setw(30) << ' ' << '[' << Client << ']' << ".Client Manage" << endl;
-    cout << setw(30) << ' ' << '[' << Logout << ']' << ".Logout" << endl;
-	cout << setw(30) << ' ' << "------------" << '\n';
+    _PrintStartBlank(30); cout << '[' << Employee << ']' << ".Employee Manage" << endl;
+    _PrintStartBlank(30); cout << '[' << Client << ']' << ".Client Manage" << endl;
+    _PrintStartBlank(30); cout << '[' << Logout << ']' << ".Logout" << endl;
+	_PrintStartBlank(30); cout << "------------" << '\n';
   }
   void _PrintMainScreen(const std::string& userName) { 
 	showGlobalScreen("Main Screen (" + userName + ')');
@@ -29,7 +29,7 @@ class MainScreen : protected Screen {
 
   enChoise getChoise(){
 	short choise{};
-	cout << setw(30) << ' ' << "Enter Choise: ";
+	_PrintStartBlank(30); cout << "Enter Choise: ";
 	cin >> choise;
 	return static_cast<enChoise>(choise);
   }

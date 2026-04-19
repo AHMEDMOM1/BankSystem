@@ -12,19 +12,19 @@ class AddEmployeeScreen : protected EmployeeScreenBase {
 
 	bool _TryReadNewAccount(string& account) {
 		do {
-			cout << setw(30) << ' ';
+			_PrintStartBlank(30);
 			account = clsInputValidate::ReadString("Enter New UserName: ");
 			if (!_employeeManager.isExistAccount(account)) {
 				return true;
 			}
-			cout << setw(30) << ' ' << "--> Error: UserName already exists!\n";
+			_PrintStartBlank(30); cout << "--> Error: UserName already exists!\n";
 
 		} while (_WantsToTryAnotherAccount());
 		return false;
 	}
 
 	bool _WantAllPermision() {
-		cout << setw(30) << ' ' << "Do you need give to employee All Permisions? (yes/no): ";
+		_PrintStartBlank(30); cout << "Do you need give to employee All Permisions? (yes/no): ";
 		return clsInputValidate::wantToApprove();
 	}
 	
@@ -49,7 +49,7 @@ class AddEmployeeScreen : protected EmployeeScreenBase {
 
 		int perm{};
 		for (const auto& item : permissions) {
-			cout << setw(30) << ' ' << item.question;
+			_PrintStartBlank(30); cout << item.question;
 			if (clsInputValidate::wantToApprove())
 				perm |= static_cast<int>(item.flag);
 		}

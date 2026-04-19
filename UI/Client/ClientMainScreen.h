@@ -23,15 +23,15 @@ class ClientMainScreen : protected Screen {
 
 	enum enChoise { Add = 1, Delete, Update, Find, ShowList, Currency, Trans, Back } _choise{};
 	void _PrintBody() {
-		cout << setw(30) << ' ' << '[' << Add << ']' << ".Add" << endl;
-		cout << setw(30) << ' ' << '[' << Delete << ']' << ".Delete" << endl;
-		cout << setw(30) << ' ' << '[' << Update << ']' << ".Update" << endl;
-		cout << setw(30) << ' ' << '[' << Find << ']' << ".Find" << endl;
-		cout << setw(30) << ' ' << '[' << ShowList << ']' << ".Show List" << endl;
-		cout << setw(30) << ' ' << '[' << Currency << ']' << ".Currencies" << endl;
-		cout << setw(30) << ' ' << '[' << Trans << ']' << ".Transiction" << endl;
-		cout << setw(30) << ' ' << '[' << Back << ']' << ".Login Screen" << endl;
-		cout << setw(30) << ' ' << "------------" << '\n';
+		_PrintStartBlank(30); cout << '[' << Add << ']' << ".Add" << endl;
+		_PrintStartBlank(30); cout << '[' << Delete << ']' << ".Delete" << endl;
+		_PrintStartBlank(30); cout << '[' << Update << ']' << ".Update" << endl;
+		_PrintStartBlank(30); cout << '[' << Find << ']' << ".Find" << endl;
+		_PrintStartBlank(30); cout << '[' << ShowList << ']' << ".Show List" << endl;
+		_PrintStartBlank(30); cout << '[' << Currency << ']' << ".Currencies" << endl;
+		_PrintStartBlank(30); cout << '[' << Trans << ']' << ".Transiction" << endl;
+		_PrintStartBlank(30); cout << '[' << Back << ']' << ".Login Screen" << endl;
+		_PrintStartBlank(30); cout << "------------" << '\n';
 	}
 	void _PrintMainScreen(const std::string& userName) {
 		showGlobalScreen("Client Main Screen (" + userName + ')');
@@ -40,7 +40,7 @@ class ClientMainScreen : protected Screen {
 
 	enChoise getChoise() {
 		short choise{};
-		cout << setw(30) << ' ' << "Enter Choise: ";
+		_PrintStartBlank(30); cout << "Enter Choise: ";
 		cin >> choise;
 		return static_cast<enChoise>(choise);
 	}

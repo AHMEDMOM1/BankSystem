@@ -15,11 +15,15 @@ class DeleteClientScreen : protected ClientScreenBase {
 			_Print(client);
 
 			if (_ConfirmAction()) {
-				_manager.remove(client.getAccountNumber());
-				cout << "\n" << setw(30) << ' ' << "--> Client Deleted Successfully!\n";
+				if (_manager.remove(client.getAccountNumber())) {
+					cout << "\n"; _PrintStartBlank(30); cout << "--> Client Deleted Successfully!\n";
+				}
+				else {
+					cout << "\n"; _PrintStartBlank(30); cout << "--> Error: Deletion Failed!\n";
+				}
 			}
 			else {
-				cout << setw(30) << ' ' << "--> Deletion Cancelled.\n";
+				_PrintStartBlank(30); cout << "--> Deletion Cancelled.\n";
 			}
 
 			

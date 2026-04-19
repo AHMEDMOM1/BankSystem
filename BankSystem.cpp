@@ -20,7 +20,7 @@ int main() {
 
     FileEmployeeRepo empRepo{ "Employee.txt" };
 	EmployeeManager empManager{ empRepo };
-	
+
 	FileClientRepo clntRepo{ "Client.txt" };
     TransferLogFile transLog{ "TransFerLog.txt" };
 	ClientManager clntManager{ clntRepo, transLog };
@@ -30,6 +30,7 @@ int main() {
 
     UserLoginFile userLog{ "UserLog.txt" };
     LoggerManager logManager{ userLog };
+	
 
     AppContext context{ clntManager, empManager, curManager, logManager };
 

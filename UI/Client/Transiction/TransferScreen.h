@@ -14,7 +14,7 @@ class TransferScreen : protected ClientScreenBase
 		double validAmount{};
 		double SendersAmount{ fromClient.getBalance() };
 		do {
-			cout << setw(30) << ' ' << "Enter a valid amount that is less than " << SendersAmount << ": ";
+			_PrintStartBlank(30); cout << "Enter a valid amount that is less than " << SendersAmount << ": ";
 			validAmount = clsInputValidate::ReadDblNumber();
 		} while (validAmount > SendersAmount || validAmount <= 0);
 
@@ -53,19 +53,19 @@ class TransferScreen : protected ClientScreenBase
 	void _PrintStateMassage(enTransferState enTransSt) {
 		switch (enTransSt) {
 		case SameAccount: {
-			cout << setw(30) << ' ' << "--> Error: The recipient's mistake is the same as the sender's!!\n";
+			_PrintStartBlank(30); cout << "--> Error: The recipient's mistake is the same as the sender's!!\n";
 			break;
 		}
 		case CanceledTrans: {
-			cout << setw(30) << ' ' << "--> Clarification!! The operation has been cancelled\n";
+			_PrintStartBlank(30); cout << "--> Clarification!! The operation has been cancelled\n";
 			break;
 		}
 		case Successed: {
-			cout << setw(30) << ' ' << "--> The transfer was successful.!!\n";
+			_PrintStartBlank(30); cout << "--> The transfer was successful.!!\n";
 			break;
 		}
 		case FailedTrans: {
-			cout << setw(30) << ' ' << "--> The Trasfering is Failed!!";
+			_PrintStartBlank(30); cout << "--> The Trasfering is Failed!!";
 			break;
 		}
 		}

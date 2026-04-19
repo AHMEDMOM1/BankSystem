@@ -31,12 +31,12 @@ class ClientScreenBase : protected Screen {
 
     void _CardLine(char ch = '-') {
         _SetColor(_CYAN);
-        cout << setw(30) << ' ' << setw(CARD_W) << setfill(ch) << ch << setfill(' ') << endl;
+        _PrintStartBlank(30); cout << setw(CARD_W) << setfill(ch) << ch << setfill(' ') << endl;
         _ResetColor();
     }
 
     void _CardRow(const string& label, const string& value) {
-        _SetColor(_CYAN);        cout << setw(30) << ' ' << "| ";
+        _SetColor(_CYAN);        _PrintStartBlank(30); cout << "| ";
         _SetColor(_YELLOW);      cout << left << setw(14) << label;
         _SetColor(_BRIGHT_WHITE);cout << setw(CARD_W - 18) << value;
         _SetColor(_CYAN);        cout << "|" << endl;
@@ -52,7 +52,7 @@ class ClientScreenBase : protected Screen {
 
         // ── Header with account number ──
         _CardLine('=');
-        _SetColor(_CYAN);       cout << setw(30) << ' ' << "| ";
+        _SetColor(_CYAN);       _PrintStartBlank(30); cout << "| ";
         _SetColor(_GREY);       cout << setw(pad) << setfill('-') << '-';
         _SetColor(_LIGHT_GREEN);cout << ' ' << acc << ' ';
         _SetColor(_GREY);       cout << setw(CARD_W - pad - accLen - 6) << setfill('-') << '-';
@@ -76,7 +76,7 @@ class ClientScreenBase : protected Screen {
 
     // ─── Shared: Yes/No Question ─────────────────────
     bool _RequestRepetition(const string& message) {
-        cout << setw(30) << ' ';
+        _PrintStartBlank(30);
         string rep{ clsInputValidate::ReadString(message) };
         transform(rep.begin(), rep.end(), rep.begin(), ::tolower);
         return rep == "yes" || rep == "y";
@@ -89,22 +89,22 @@ class ClientScreenBase : protected Screen {
 
     // ─── Shared: Fill Client Info ────────────────────
     void _FillInfo(Client& client) {
-        cout << setw(30) << ' '; client.setName(clsInputValidate::ReadString("Enter Name: "));
-        cout << setw(30) << ' '; client.setSurName(clsInputValidate::ReadString("Enter lastName: "));
-        cout << setw(30) << ' '; client.setPhoneNumber(clsInputValidate::ReadString("Enter Phone: "));
-        cout << setw(30) << ' '; client.setEmail(clsInputValidate::ReadString("Enter Email: "));
-        cout << setw(30) << ' '; client.setPinCode(static_cast<short>(clsInputValidate::ReadIntNumber("Enter Pin Code: ")));
-        cout << setw(30) << ' '; client.setBalance(clsInputValidate::ReadDblNumber("Enter Balance: "));
+        _PrintStartBlank(30); client.setName(clsInputValidate::ReadString("Enter Name: "));
+        _PrintStartBlank(30); client.setSurName(clsInputValidate::ReadString("Enter lastName: "));
+        _PrintStartBlank(30); client.setPhoneNumber(clsInputValidate::ReadString("Enter Phone: "));
+        _PrintStartBlank(30); client.setEmail(clsInputValidate::ReadString("Enter Email: "));
+        _PrintStartBlank(30); client.setPinCode(static_cast<short>(clsInputValidate::ReadIntNumber("Enter Pin Code: ")));
+        _PrintStartBlank(30); client.setBalance(clsInputValidate::ReadDblNumber("Enter Balance: "));
     }
 
     // ─── Shared: Try Find Existing Account ───────────
     bool _TryExistAccount(string& account, const string& massage) {
         do {
-            cout << setw(30) << ' ';
+            _PrintStartBlank(30);
             account = clsInputValidate::ReadString(massage);
             if (_manager.existAccount(account))
                 return true;
-            cout << setw(30) << ' ' << "--> Error: Account Not Found!\n";
+            _PrintStartBlank(30); cout << "--> Error: Account Not Found!\n";
         } while (_WantsToTryAnotherAccount());
         return false;
     }
@@ -118,7 +118,7 @@ class ClientScreenBase : protected Screen {
     }
     // ─── Shared: Confirm Action ──────────────────────
     bool _ConfirmAction(const string& message = "Are You Sure (Yes/No): ") {
-        cout << setw(30) << ' ';
+        _PrintStartBlank(30);
         string request{ clsInputValidate::ReadString(message) };
         transform(request.begin(), request.end(), request.begin(), ::tolower);
         return request == "yes" || request == "y";
