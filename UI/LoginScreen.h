@@ -93,6 +93,6 @@ public:
                 MainScreen mainScreen(context);
                 mainScreen.show(sessionUser);
             }
-        } while (i > 1);
+        } while (i > 0);
     }
 };
