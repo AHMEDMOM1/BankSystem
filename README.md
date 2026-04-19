@@ -20,7 +20,7 @@ A fully-featured, console-based Banking Management System built entirely in C++ 
 
 ## 🚀 How to Run
 1. Clone the repository: `git clone https://github.com/AHMEDMOM1/BankSystem.git`
-2. Open the solution file `TestOopBank.sln` using **Microsoft Visual Studio**.
+2. Open the solution file `BankSystem.sln` using **Microsoft Visual Studio**.
 3. Compile and Run the project (x64/Release or Debug).
 4. Login using the default admin credentials (configured in `.txt` database).
 

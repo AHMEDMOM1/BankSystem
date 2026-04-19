@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "s:/Working/language/Cpp/TestOopBank/UI/Client",
-      "program": "s:/Working/language/Cpp/TestOopBank/UI/Client/build/Debug/outDebug",
+      "cwd": "s:/Working/language/Cpp/BankSystem/UI/Client",
+      "program": "s:/Working/language/Cpp/BankSystem/UI/Client/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

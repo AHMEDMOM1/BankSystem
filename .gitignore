@@ -54,8 +54,8 @@ bld/
 bin/
 obj/
 out/
-TestOopBank/x64/
-TestOopBank/Debug/
-TestOopBank/Release/
+BankSystem/x64/
+BankSystem/Debug/
+BankSystem/Release/
 
 .fake

@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{520d0754-939e-4f46-821c-5820a25de2e4}</ProjectGuid>
-    <RootNamespace>TestOopBank</RootNamespace>
+    <RootNamespace>BankSystem</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -124,7 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="TestOopBank.cpp" />
+    <ClCompile Include="BankSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\oopBankProject\UserfullLb\clsDate.h" />
