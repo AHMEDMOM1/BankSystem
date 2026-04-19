@@ -6,7 +6,7 @@
 
 #include "clsString.h"
 #include "ICurrenciesRepo.h"
-#include "CurrenciesRecord.h"
+#include "CurrencyRecord.h"
 
 class CurrenciesFile : public ICurrenciesRepo
 {
@@ -14,9 +14,9 @@ class CurrenciesFile : public ICurrenciesRepo
 	std::string _fileName{};
 	std::string _delim{};
 
-	CurrenciesRecord _ConvertLineToRecStuct(std::string& line) {
+	CurrencyRecord _ConvertLineToRecStuct(std::string& line) {
 		std::vector<std::string>partitions{ clsString::Split(line, _delim) };
-		CurrenciesRecord record{};
+		CurrencyRecord record{};
 
 		if (partitions.size() >= 1) record.countryName = partitions.at(0);
 		if (partitions.size() >= 2) record.currencyCode = partitions.at(1);
@@ -26,35 +26,55 @@ class CurrenciesFile : public ICurrenciesRepo
 		return record;
 	}
 
+	std::string _ConvertRecordToLine(const CurrencyRecord& record) {
+		return { record.countryName + _delim + 
+				 record.currencyCode + _delim + 
+				 record.currencyName + _delim +
+				 to_string(record.currencyExchangeDollar)};
+	}
+
+	bool _SaveAll(std::vector<CurrencyRecord> records) {
+		std::ofstream oFile{ _fileName, std::ios::out };
+
+		if (oFile) {
+			for (CurrencyRecord& record : records) {
+				oFile << _ConvertRecordToLine(record) << '\n';
+			}
+			return true;
+		}
+
+		return false;
+	}
+
 
 public:
 	CurrenciesFile(const std::string& fileName, const std::string& delim = "#//#") : _fileName(fileName), _delim(delim) {}
 
-	CurrenciesRecord findByCurrencyCode(const std::string& currencyCode) override {
-		std::vector<CurrenciesRecord> records{ getAll() };
+	CurrencyRecord findByCurrencyCode(const std::string& currencyCode) override {
+		std::vector<CurrencyRecord> records{ getAll() };
 
-		for (CurrenciesRecord& record : records) {
+		for (CurrencyRecord& record : records) {
 			if (record.currencyCode == currencyCode) return record;
 		}
 
-		return CurrenciesRecord();
+		return CurrencyRecord();
 	}
-	CurrenciesRecord findByCountryName(const std::string& countryName) override {
-		std::vector<CurrenciesRecord> records{ getAll() };
+	CurrencyRecord findByCountryName(const std::string& countryName) override {
+		std::vector<CurrencyRecord> records{ getAll() };
 
-		for (CurrenciesRecord& record : records) {
+		for (CurrencyRecord& record : records) {
 			if (record.countryName == countryName) return record;
 		}
 
-		return CurrenciesRecord();
+		return CurrencyRecord();
 	}
-	bool updateRate(const CurrenciesRecord& currentRecord)override {
-		std::vector<CurrenciesRecord> records{ getAll() };
+	bool updateRate(const CurrencyRecord& currentRecord)override {
+		std::vector<CurrencyRecord> records{ getAll() };
 
-		for (CurrenciesRecord& record : records) {
+		for (CurrencyRecord& record : records) {
 			if (record.currencyCode == currentRecord.currencyCode) {
 				record = currentRecord;
-				return true;
+				return _SaveAll(records);
 			}
 		}
 
@@ -62,9 +82,9 @@ public:
 		return false;
 	}
 	
-	std::vector<CurrenciesRecord> getAll()override {
+	std::vector<CurrencyRecord> getAll()override {
 		std::ifstream iFile{_fileName, std::ios::in};
-		std::vector<CurrenciesRecord> records{};
+		std::vector<CurrencyRecord> records{};
 
 		if (iFile) {
 			std::string line{};
@@ -77,5 +97,6 @@ public:
 		 
 		return records;
 	}
+
 };
 

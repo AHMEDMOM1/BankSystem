@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+
+#include "Client.h"
+#include "CurrentUser.h"
 #include "TransferRecord.h"
 class ITransferLog
 {

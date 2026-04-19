@@ -53,6 +53,10 @@ private:
 	}
 
 public:
+	void _PrintStartBlank(const short blank = 10) {
+		cout << setw(blank) << ' ';
+	}
+
 	void showGlobalScreen(const string& title, const string& subTitle = "") {
 		_showHeader(title, subTitle);
 	}

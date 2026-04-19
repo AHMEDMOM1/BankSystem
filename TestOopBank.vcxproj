@@ -131,13 +131,15 @@
     <ClInclude Include="..\oopBankProject\UserfullLb\clsInputValidate.h" />
     <ClInclude Include="..\oopBankProject\UserfullLb\clsString.h" />
     <ClInclude Include="..\oopBankProject\UserfullLb\clsUtil.h" />
+    <ClInclude Include="AppContextf.h" />
     <ClInclude Include="CurrentUser.h" />
     <ClInclude Include="Interface\IClientRepo.h" />
     <ClInclude Include="Interface\ICurrenciesRepo.h" />
     <ClInclude Include="Interface\IEmployeeRepo.h" />
     <ClInclude Include="Interface\ITransferLog.h" />
+    <ClInclude Include="Interface\IUserLog.h" />
     <ClInclude Include="Models\Client.h" />
-    <ClInclude Include="Models\CurrenciesRecord.h" />
+    <ClInclude Include="Models\CurrencyRecord.h" />
     <ClInclude Include="Models\LoginRecord.h" />
     <ClInclude Include="Models\Person.h" />
     <ClInclude Include="Models\Employee.h" />
@@ -150,6 +152,7 @@
     <ClInclude Include="Services\ClientManager.h" />
     <ClInclude Include="Services\CurrencyManager.h" />
     <ClInclude Include="Services\EmployeeManager.h" />
+    <ClInclude Include="Services\LoggerManager.h" />
     <ClInclude Include="UI\Client\AddClientScreen.h" />
     <ClInclude Include="UI\Client\ClientMainScreen.h" />
     <ClInclude Include="UI\Client\ClientScreenBase.h" />

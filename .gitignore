@@ -57,3 +57,5 @@ out/
 TestOopBank/x64/
 TestOopBank/Debug/
 TestOopBank/Release/
+
+.fake

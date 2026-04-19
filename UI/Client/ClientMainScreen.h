@@ -3,8 +3,10 @@
 #include <iostream>
 
 #include "Screen.h"
+#include "AppContext.h"
 #include "ClientsList.h"
 #include "ClientManager.h"
+#include "CurrencyManager.h"
 #include "AddClientScreen.h"
 #include "FindClientScreen.h"
 #include "TransictionScreen.h"
@@ -13,22 +15,22 @@
 #include "CurrenciesMainScreen.h"
 
 
-// 1. print main screen
-// 2. create logic screen
+
 
 using namespace std;
 class ClientMainScreen : protected Screen {
-	ClientManager& _clntManager;
-	enum enChoise { Add = 1, Delete, Update, Find, ShowList, Trans, Currency, Back } _choise{};
+	AppContext& _context;
+
+	enum enChoise { Add = 1, Delete, Update, Find, ShowList, Currency, Trans, Back } _choise{};
 	void _PrintBody() {
-		cout << setw(30) << ' ' << '[' << Add << ']' << ". Add" << endl;
-		cout << setw(30) << ' ' << '[' << Delete << ']' << ". Delete" << endl;
-		cout << setw(30) << ' ' << '[' << Update << ']' << ". Update" << endl;
-		cout << setw(30) << ' ' << '[' << Find << ']' << ". Find" << endl;
-		cout << setw(30) << ' ' << '[' << ShowList << ']' << ". Show List" << endl;
-		cout << setw(30) << ' ' << '[' << Currency << ']' << ". Currencies" << endl;
-		cout << setw(30) << ' ' << '[' << Trans << ']' << ". Transiction" << endl;
-		cout << setw(30) << ' ' << "[8]. Login Screen" << endl;
+		cout << setw(30) << ' ' << '[' << Add << ']' << ".Add" << endl;
+		cout << setw(30) << ' ' << '[' << Delete << ']' << ".Delete" << endl;
+		cout << setw(30) << ' ' << '[' << Update << ']' << ".Update" << endl;
+		cout << setw(30) << ' ' << '[' << Find << ']' << ".Find" << endl;
+		cout << setw(30) << ' ' << '[' << ShowList << ']' << ".Show List" << endl;
+		cout << setw(30) << ' ' << '[' << Currency << ']' << ".Currencies" << endl;
+		cout << setw(30) << ' ' << '[' << Trans << ']' << ".Transiction" << endl;
+		cout << setw(30) << ' ' << '[' << Back << ']' << ".Login Screen" << endl;
 		cout << setw(30) << ' ' << "------------" << '\n';
 	}
 	void _PrintMainScreen(const std::string& userName) {
@@ -46,37 +48,37 @@ class ClientMainScreen : protected Screen {
 	void _DirectToScreen(const enChoise& choise, const CurrentUser& user) {
 		switch (choise) {
 		case Add: {
-			AddClientScreen addScreen(_clntManager);
+			AddClientScreen addScreen(_context.clntManager);
 			addScreen.show(user);
 			break;
 		}
 		case Delete: {
-			DeleteClientScreen deleteScreen(_clntManager);
+			DeleteClientScreen deleteScreen(_context.clntManager);
 			deleteScreen.show(user);
 			break;
 		}
 		case Update: {
-			UpdateClientScreen updateScreen(_clntManager);
+			UpdateClientScreen updateScreen(_context.clntManager);
 			updateScreen.show(user);
 			break;
 		}
 		case Find: {
-			FindClientScreen findScreen(_clntManager);
+			FindClientScreen findScreen(_context.clntManager);
 			findScreen.show(user);
 			break;
 		}
 		case ShowList: {
-			ClientsList clienstList(_clntManager);
+			ClientsList clienstList(_context.clntManager);
 			clienstList.show(user);
 			break;
 		}
 		case Currency: {
-			CurrenciesMainScreen currMainScreen{};
+			CurrenciesMainScreen currMainScreen{_context.curManager};
 			currMainScreen.show();
 			break;
 		}
 		case Trans: {
-			TransictionScreen transScreen(_clntManager);
+			TransictionScreen transScreen(_context.clntManager);
 			transScreen.show(user);
 			break;
 		}
@@ -89,7 +91,7 @@ class ClientMainScreen : protected Screen {
 	}
 
 public:
-	ClientMainScreen(ClientManager& clntManager) : _clntManager(clntManager) {};
+	ClientMainScreen(AppContext& context): _context(context) {};
 
 	void show(const CurrentUser& user) {
 		do {
@@ -101,7 +103,7 @@ public:
 			_DirectToScreen(_choise, user);
 
 			if (_choise >= Back)break;
-			else if(_choise != Trans)
+			else if(_choise < Currency)
 				system("pause");
 
 		} while (true);

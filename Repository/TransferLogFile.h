@@ -45,7 +45,7 @@ class TransferLogFile : public ITransferLog
 	
 
 public:
-	TransferLogFile(const std::string fileName, const std::string delim = "#//#") : _fileName(fileName), _delim(delim) {}
+	TransferLogFile(const std::string& fileName, const std::string& delim = "#//#") : _fileName(fileName), _delim(delim) {}
 
 	bool recordTransferProcess(const CurrentUser& user, const Client& sender, const Client& rec, const double amount) override{
 		ofstream oFile{ _fileName, std::ios::app };

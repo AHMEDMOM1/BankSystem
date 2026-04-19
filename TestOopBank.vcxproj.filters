@@ -140,9 +140,6 @@
     <ClInclude Include="UI\Employe\UpdateEmployeeScreen.h">
       <Filter>Header Files\UI\Employ</Filter>
     </ClInclude>
-    <ClInclude Include="CurrentUser.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
     <ClInclude Include="UI\LoginScreen.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
@@ -188,7 +185,7 @@
     <ClInclude Include="Repository\CurrenciesFile.h">
       <Filter>Header Files\Repository</Filter>
     </ClInclude>
-    <ClInclude Include="Models\CurrenciesRecord.h">
+    <ClInclude Include="Models\CurrencyRecord.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="Services\CurrencyManager.h">
@@ -205,6 +202,18 @@
     </ClInclude>
     <ClInclude Include="UI\Currency\CurrenciesMainScreen.h">
       <Filter>Header Files\UI\Currency</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentUser.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AppContextf.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\IUserLog.h">
+      <Filter>Header Files\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\LoggerManager.h">
+      <Filter>Header Files\Services</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -101,7 +101,7 @@ public:
     return Clients;
   }
 
-  bool existAccount(const string& account) {
+  bool existAccount(const string& account) override {
       return !find(account).isEmpty();
   }
 

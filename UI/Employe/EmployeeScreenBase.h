@@ -1,6 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <algorithm>
 
 #include "Employee.h"
 #include "Screen.h"
@@ -12,14 +15,57 @@ class EmployeeScreenBase : protected Screen
 protected:
 	EmployeeManager& _employeeManager;
 	
-    // ??? Shared: Print Employee Card 
-    void _Print(const Employee& Employee) {
-        short accountLength{ static_cast<short>(Employee.getUserName().length()) };
-        cout << setw(30) << ' ' << setw(30 - (accountLength / 2)) << setfill('-') << '-' << Employee.getUserName() << setw(30 - (accountLength / 2)) << setfill('-') << '-' << setfill(' ') << endl;
-        cout << setw(30) << ' ' << setw(5) << left << "Name:" << setw(7) << left << Employee.getName() << setw(32) << ' ' << "Last Name: " << Employee.getSurName() << endl;
-        cout << setw(30) << ' ' << setw(6) << left << "Email:" << setw(30) << left << Employee.getEmail() << setw(9) << ' ' << "Password " << Employee.getPassword() << endl;
-        cout << setw(30) << ' ' << setw(6) << left << "Phone:" << setw(11) << left << Employee.getPhoneNumber() << setw(28) << ' ' << "Permisions: " << Employee.getPermissions() << endl;
-        cout << setw(30) << ' ' << setw(60) << setfill('-') << '-' << setfill(' ') << endl;
+    // ─── Console Color Helpers ────────────────────────
+    HANDLE _hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    void _SetColor(int c) { SetConsoleTextAttribute(_hConsole, c); }
+    void _ResetColor()    { SetConsoleTextAttribute(_hConsole, 7); }
+    enum enCardColor {
+        _CYAN = 3, _YELLOW = 6, _GREY = 8,
+        _LIGHT_GREEN = 10, _LIGHT_CYAN = 11, _BRIGHT_WHITE = 15
+    };
+
+    static const short CARD_W = 62;
+
+    void _CardLine(char ch = '-') {
+        _SetColor(_CYAN);
+        cout << setw(30) << ' ' << setw(CARD_W) << setfill(ch) << ch << setfill(' ') << endl;
+        _ResetColor();
+    }
+
+    void _CardRow(const string& label, const string& value) {
+        _SetColor(_CYAN);        cout << setw(30) << ' ' << "| ";
+        _SetColor(_YELLOW);      cout << left << setw(14) << label;
+        _SetColor(_BRIGHT_WHITE);cout << setw(CARD_W - 18) << value;
+        _SetColor(_CYAN);        cout << "|" << endl;
+        _ResetColor();
+    }
+
+    // ─── Shared: Print Employee Card ───────────────────
+    void _Print(const Employee& employee) {
+        const string& uname = employee.getUserName();
+        short uLen = static_cast<short>(uname.length());
+        short pad  = (CARD_W - uLen - 4) / 2;
+        cout << endl;
+
+        // ── Header with username ──
+        _CardLine('=');
+        _SetColor(_CYAN);       cout << setw(30) << ' ' << "| ";
+        _SetColor(_GREY);       cout << setw(pad) << setfill('-') << '-';
+        _SetColor(_LIGHT_GREEN);cout << ' ' << uname << ' ';
+        _SetColor(_GREY);       cout << setw(CARD_W - pad - uLen - 6) << setfill('-') << '-';
+        _SetColor(_CYAN);       cout << "|" << setfill(' ') << endl;
+        _ResetColor();
+        _CardLine('-');
+
+        // ── Data rows ──
+        _CardRow("Name:",     employee.getName() + " " + employee.getSurName());
+        _CardRow("Email:",    employee.getEmail());
+        _CardRow("Phone:",    employee.getPhoneNumber());
+        _CardRow("Password:", employee.getPassword());
+        _CardRow("Permissions:", to_string(employee.getPermissions()));
+
+        _CardLine('=');
+        cout << endl;
     }
 
     // ??? Shared: Yes/No Question 

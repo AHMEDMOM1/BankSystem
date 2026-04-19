@@ -7,6 +7,7 @@ private:
     Employee _employee{};
 
 public:
+    // We tell the compiler that this function is noexcept and trivial.
     CurrentUser() = default;
 
     void login(const Employee& emp) {

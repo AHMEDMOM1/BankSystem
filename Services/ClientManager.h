@@ -14,19 +14,14 @@ public:
     ClientManager(IClientRepo& repo, ITransferLog& log) : _repo(repo), _log(log) {}
 
     bool addNew(const Client& client) {
-        if(_repo.existAccount(client.getAccountNumber())) 
-            return false;
-
         return _repo.add(client);
     }
+
     bool update(const Client& client) {
-        if (!_repo.existAccount(client.getAccountNumber()))
-            return false;
         return _repo.update(client);
     }
+
     bool remove(const std::string& account) {
-        if (!_repo.existAccount(account))
-            return false;
         return _repo.remove(account);
     }
     Client find(const std::string& account) {
@@ -50,7 +45,7 @@ public:
         double totalBalance{};
 
         if (!clients.empty()) {
-            for (Client client : clients) {
+            for (Client& client : clients) {
                 totalBalance += client.getBalance();
             }
         }

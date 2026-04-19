@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Screen.h"
+#include "AppContext.h"
 #include "ClientMainScreen.h"
 #include "EmployeesMainScreen.h"
 
@@ -12,13 +13,13 @@
 
 using namespace std;
 class MainScreen : protected Screen {
-  ClientManager& _clntManager;
-  EmployeeManager& _empManager;
+	AppContext& _context;
+
   enum enChoise { Employee = 1, Client, Logout } _choise{};
   void _PrintBody() {
-    cout << setw(30) << ' ' << '[' << Employee << ']' << ". Employee Manage" << endl;
-    cout << setw(30) << ' ' << '[' << Client << ']' << ". Client Manage" << endl;
-    cout << setw(30) << ' ' << '[' << Logout << ']' << ". Logout" << endl;
+    cout << setw(30) << ' ' << '[' << Employee << ']' << ".Employee Manage" << endl;
+    cout << setw(30) << ' ' << '[' << Client << ']' << ".Client Manage" << endl;
+    cout << setw(30) << ' ' << '[' << Logout << ']' << ".Logout" << endl;
 	cout << setw(30) << ' ' << "------------" << '\n';
   }
   void _PrintMainScreen(const std::string& userName) { 
@@ -36,12 +37,12 @@ class MainScreen : protected Screen {
   void _DirectToScreen(const enChoise& choise, CurrentUser& user){
 	switch (choise) {
 		case Employee: {
-			EmployeesMainScreen empMainScreen(_empManager);
+			EmployeesMainScreen empMainScreen(_context.empManager);
 			empMainScreen.show(user);
 			break;
 		}
 		case Client: {
-			ClientMainScreen clntMainScreen(_clntManager);
+			ClientMainScreen clntMainScreen(_context);
 			clntMainScreen.show(user);
 			break;
 		}
@@ -54,7 +55,7 @@ class MainScreen : protected Screen {
   }
 
 public:
-  MainScreen(ClientManager &clntManager, EmployeeManager& empManager) : _clntManager(clntManager), _empManager(empManager) {};
+  MainScreen(AppContext& context): _context(context) {};
 
   void show(CurrentUser& user) {
 	do{

@@ -41,9 +41,8 @@ public:
 		showGlobalScreen("Add Screen");
 		
 		
-		// created in screen.h for don't reapet print massage
 		if (!CheckAccessRights(user, Employee::enPermissions::pAddNewClient)) {
-			return; // Access denied! message already printed.
+			return; 
 		}
 
 		do {

@@ -7,11 +7,12 @@
 #include "clsDate.h"
 #include "clsUtil.h"
 #include "Employee.h"
+#include "IUserLog.h"
 #include "clsString.h"
 #include "CurrentUser.h"
 #include "LoginRecord.h"
 
-class UserLoginFile
+class UserLoginFile : public IUserLogin
 {
 	std::string _fileName{};
 	std::string _delim{};

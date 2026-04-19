@@ -16,13 +16,13 @@ class EmployeesMainScreen : protected Screen {
 
     enum enChoise { Add = 1, Delete, Update, Find, ShowList, LoginRegister, Back } _choise{};
     void _PrintBody() {
-        cout << setw(30) << ' ' << '[' << Add << ']' << ". Add Employee" << endl;
-        cout << setw(30) << ' ' << '[' << Delete << ']' << ". Delete Employee" << endl;
-        cout << setw(30) << ' ' << '[' << Update << ']' << ". Update Employee" << endl;
-        cout << setw(30) << ' ' << '[' << Find << ']' << ". Find Employee" << endl;
-        cout << setw(30) << ' ' << '[' << ShowList << ']' << ". Show List Employees" << endl;
-        cout << setw(30) << ' ' << '[' << LoginRegister << ']' << ". Login Register" << endl;
-		cout << setw(30) << ' ' << '[' << Back << ']' << ". Main Screen" << endl;
+        cout << setw(30) << ' ' << '[' << Add << ']' << ".Add Employee" << endl;
+        cout << setw(30) << ' ' << '[' << Delete << ']' << ".Delete Employee" << endl;
+        cout << setw(30) << ' ' << '[' << Update << ']' << ".Update Employee" << endl;
+        cout << setw(30) << ' ' << '[' << Find << ']' << ".Find Employee" << endl;
+        cout << setw(30) << ' ' << '[' << ShowList << ']' << ".Show List Employees" << endl;
+        cout << setw(30) << ' ' << '[' << LoginRegister << ']' << ".Login Register" << endl;
+		cout << setw(30) << ' ' << '[' << Back << ']' << ".Main Screen" << endl;
         cout << setw(30) << ' ' << "------------" << '\n';
     }
 	void _PrintEmployeeMainScreen(const std::string& userName) {

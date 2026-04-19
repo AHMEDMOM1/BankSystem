@@ -2,17 +2,21 @@
 
 #include "Employee.h"
 #include "MainScreen.h"
+#include "MainScreen.h"
+#include "AppContext.h"
+#include "CurrentUser.h"
 #include "ClientManager.h"
-#include "../CurrentUser.h"
 #include "EmployeeManager.h"
 #include "ClientMainScreen.h"
 #include "clsInputValidate.h"
 #include "EmployeeScreenBase.h"
 
-class LoginScreen : protected EmployeeScreenBase{
+class StartScreen : protected EmployeeScreenBase{
 
 // EmployeeManager& _empManager;
 // if we initialization _empManager to parametery var not prob why?
+
+
 
 public:
     enum class LoginStatus { Success, Failed, Canceled };
@@ -49,7 +53,7 @@ string _InputPassWord() {
 }
 
 public:
-    LoginScreen(EmployeeManager& manager) : EmployeeScreenBase(manager){} // , _clientManager(clientManager), _empManager(manager){}
+    StartScreen(AppContext& context) : EmployeeScreenBase(context.empManager){}
 
     LoginStatus login(CurrentUser& user){
         showGlobalScreen("Login Screen", "(exit = 0)");
@@ -67,5 +71,28 @@ public:
         }
         
         return LoginStatus::Failed;
+    }
+
+    bool login(AppContext& context) {
+
+        CurrentUser sessionUser;
+        int i{ 3 };
+
+        do {
+            StartScreen::LoginStatus result = login(sessionUser);
+
+            if (result == StartScreen::LoginStatus::Failed) {
+                i--;
+                cout << setw(30) << ' ' << "You Have " << i << " Trying!!" << endl;
+            }
+            else if (result == StartScreen::LoginStatus::Canceled) return 0;
+            else {
+               
+                context.logManager.add(sessionUser);
+
+                MainScreen mainScreen(context);
+                mainScreen.show(sessionUser);
+            }
+        } while (i > 1);
     }
 };
