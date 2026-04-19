@@ -62,7 +62,7 @@ class TransictionScreen : protected Screen
 		cout << setw(30) << ' ' << '[' << Withd << ']' << ". Withdraw" << endl;
 		cout << setw(30) << ' ' << '[' << TotalBalance << ']' << ". Show Total Balance" << endl;
 		cout << setw(30) << ' ' << '[' << Transfer << ']' << ". Transfer" << endl;
-		cout << setw(30) << ' ' << '[' << TransFerShow << ']' << ". Transfer Login Screen" << endl;
+		cout << setw(30) << ' ' << '[' << TransFerShow << ']' << ". Transfer Log Screen" << endl;
 		cout << setw(30) << ' ' << "[6]. Main Screen" << endl;
 		cout << setw(30) << ' ' << "------------------" << '\n';
 	}
